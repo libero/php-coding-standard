@@ -5,6 +5,12 @@ language: php
 php:
     - 7.2
 
+matrix:
+    include:
+        - name: Lowest dependency versions
+          php: 7.2
+          env: dependencies=lowest
+
 branches:
     only:
         - master
@@ -18,7 +24,7 @@ before_install:
     - phpenv config-add .travis/php.ini
 
 install:
-    - travis_retry composer install --classmap-authoritative --no-suggest --prefer-dist
+    - if [ "$dependencies" = "lowest" ]; then travis_retry composer update --classmap-authoritative --no-suggest --prefer-lowest --prefer-stable; else travis_retry composer install --classmap-authoritative --no-suggest --prefer-dist; fi
 
 script:
     - vendor/bin/phpunit
