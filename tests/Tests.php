@@ -67,6 +67,8 @@ final class Tests extends TestCase
 
             if (empty($parts['contents'])) {
                 throw new LogicException("Couldn't find contents in {$file->getRelativePathname()}");
+            } elseif (empty($parts['fixed']) && empty($parts['messages'])) {
+                throw new LogicException("Expected one of fixed or messages in {$file->getRelativePathname()}");
             }
 
             yield $file->getRelativePathname() => [
