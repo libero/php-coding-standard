@@ -15,6 +15,7 @@ cache:
 
 before_install:
     - phpenv config-rm xdebug.ini
+    - phpenv config-add .travis/php.ini
 
 install:
     - travis_retry composer install --classmap-authoritative --no-suggest --prefer-dist
