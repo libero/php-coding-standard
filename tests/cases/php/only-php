@@ -1,0 +1,8 @@
+---DESCRIPTION---
+Must only contain PHP
+---CONTENTS---
+foo<?php
+
+$foo = 'bar';
+
+---

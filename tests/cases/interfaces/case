@@ -1,0 +1,16 @@
+---DESCRIPTION---
+Filename must match class name
+---FILENAME---
+foobar.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+interface foobar
+{
+}
+
+---MESSAGES---
+5:1 Interface name "foobar" is not in PascalCase format
+---

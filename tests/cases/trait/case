@@ -1,0 +1,16 @@
+---DESCRIPTION---
+Filename must match class name
+---FILENAME---
+foobar.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+trait foobar
+{
+}
+
+---MESSAGES---
+5:1 Trait name "foobar" is not in PascalCase format
+---
