@@ -7,4 +7,6 @@
 
     <rule ref="PSR2"/>
 
+    <rule ref="Squiz.Classes.ClassFileName"/>
+
 </ruleset>
