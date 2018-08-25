@@ -7,7 +7,7 @@ php:
     - nightly
 
 before_install:
-    - phpenv config-rm xdebug.ini
+    - phpenv config-rm xdebug.ini || true
     - phpenv config-add .travis/php.ini
 
 install:
