@@ -1,0 +1,14 @@
+---DESCRIPTION---
+Classes must be in a namespace
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+class Foo
+{
+}
+
+---MESSAGES---
+3:1 Each class must be in a namespace of at least one level (a top-level vendor name)
+---

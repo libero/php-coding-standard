@@ -1,0 +1,14 @@
+---DESCRIPTION---
+Traits must be in a namespace
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+trait Foo
+{
+}
+
+---MESSAGES---
+3:1 Each trait must be in a namespace of at least one level (a top-level vendor name)
+---
