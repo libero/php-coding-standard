@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Filename must match class name
+Interface name must be in pascal case
 ---FILENAME---
 foobar.php
 ---CONTENTS---
