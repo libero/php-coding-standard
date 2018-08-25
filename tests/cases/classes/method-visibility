@@ -1,0 +1,19 @@
+---DESCRIPTION---
+Methods must have visibility declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+class Foo
+{
+    function bar() : void
+    {
+    }
+}
+
+---MESSAGES---
+7:5 Visibility must be declared on method "bar"
+---
