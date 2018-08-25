@@ -1,0 +1,17 @@
+---DESCRIPTION---
+Interface constants must be in all upper case
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+interface Foo
+{
+    public const foo = 'bar';
+}
+
+---MESSAGES---
+7:18 Class constants must be uppercase; expected FOO but found foo
+---
