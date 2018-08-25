@@ -1,0 +1,14 @@
+---DESCRIPTION---
+Blank line after namespace declaration
+---CONTENTS---
+<?php
+namespace Foo;
+$foo = 'bar';
+
+---FIXED---
+<?php
+namespace Foo;
+
+$foo = 'bar';
+
+---
