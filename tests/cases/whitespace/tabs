@@ -1,14 +1,21 @@
 ---DESCRIPTION---
-A file must either declare symbols or execute logic, not both
+Must use spaces use tabs
 ---CONTENTS---
 <?php
 
-foo();
-
-function foo() : void
-{
+function (array $foo) : iterable {
+	foreach ($foo as $bar) {
+		yield $bar;
+	}
 }
 
----MESSAGES---
-1:1 A file should declare new symbols (classes, functions, constants, etc.) and cause no other side effects, or it should execute logic with side effects, but should not do both. The first symbol is defined on line 5 and the first side effect is on line 3.
+---FIXED---
+<?php
+
+function (array $foo) : iterable {
+    foreach ($foo as $bar) {
+        yield $bar;
+    }
+}
+
 ---

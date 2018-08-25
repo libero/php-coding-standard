@@ -1,15 +1,14 @@
 ---DESCRIPTION---
-No closing PHP tags at the end of files
+A file must either declare symbols or execute logic, not both
 ---CONTENTS---
 <?php
 
-$foo = 'bar';
+foo();
 
-?>
+function foo() : void
+{
+}
 
----FIXED---
-<?php
-
-$foo = 'bar';
-
+---MESSAGES---
+1:1 A file should declare new symbols (classes, functions, constants, etc.) and cause no other side effects, or it should execute logic with side effects, but should not do both. The first symbol is defined on line 5 and the first side effect is on line 3.
 ---
