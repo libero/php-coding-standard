@@ -1,20 +1,22 @@
 ---DESCRIPTION---
-Must use spaces use tabs
+Must use spaces not tabs
 ---CONTENTS---
 <?php
 
-function (array $foo) : iterable {
-	foreach ($foo as $bar) {
-		yield $bar;
+function foo(array $bar) : iterable
+{
+	foreach ($bar as $baz) {
+		yield $baz;
 	}
 }
 
 ---FIXED---
 <?php
 
-function (array $foo) : iterable {
-    foreach ($foo as $bar) {
-        yield $bar;
+function foo(array $bar) : iterable
+{
+    foreach ($bar as $baz) {
+        yield $baz;
     }
 }
 

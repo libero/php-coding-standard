@@ -3,6 +3,7 @@
 namespace tests\Libero\CodingStandard;
 
 use LogicException;
+use ParseError;
 use PHP_CodeSniffer\Config;
 use PHP_CodeSniffer\Files\DummyFile;
 use PHP_CodeSniffer\Files\File;
@@ -18,6 +19,8 @@ use function ini_get;
 use function preg_match_all;
 use function sort;
 use function strpos;
+use function token_get_all;
+use const TOKEN_PARSE;
 
 final class Tests extends TestCase
 {
@@ -69,6 +72,22 @@ final class Tests extends TestCase
                 throw new LogicException("Couldn't find contents in {$file->getRelativePathname()}");
             } elseif (empty($parts['fixed']) && empty($parts['messages'])) {
                 throw new LogicException("Expected one of fixed or messages in {$file->getRelativePathname()}");
+            }
+
+            try {
+                token_get_all($parts['contents'], TOKEN_PARSE);
+            } catch (ParseError $exception) {
+                $message = "Failed to parse content in {$file->getRelativePathname()}: {$exception->getMessage()}";
+                throw new LogicException($message, 0, $exception);
+            }
+
+            if (!empty($parts['fixed'])) {
+                try {
+                    token_get_all($parts['fixed'], TOKEN_PARSE);
+                } catch (ParseError $exception) {
+                    $message = "Failed to parse fixed in {$file->getRelativePathname()}: {$exception->getMessage()}";
+                    throw new LogicException($message, 0, $exception);
+                }
             }
 
             yield $file->getRelativePathname() => [
