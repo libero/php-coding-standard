@@ -9,9 +9,7 @@ namespace Vendor;
 
 interface Foo
 {
-    public function bar_baz() : void
-    {
-    }
+    public function bar_baz() : void;
 }
 
 ---MESSAGES---
