@@ -1,0 +1,20 @@
+---DESCRIPTION---
+Function braces must be on separate lines.
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+function bar() : void { $baz = 'qux'; }
+
+---FIXED---
+<?php
+
+namespace Vendor;
+
+function bar() : void
+{
+    $baz = 'qux';
+}
+
+---
