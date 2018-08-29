@@ -9,9 +9,9 @@ namespace Vendor;
 
 interface Foo
 {
-    public const foo = 'bar';
+    const foo = 'bar';
 }
 
 ---MESSAGES---
-7:18 Class constants must be uppercase; expected FOO but found foo
+7:11 Class constants must be uppercase; expected FOO but found foo
 ---
