@@ -103,6 +103,8 @@ final class RulesetTests extends TestCase
                 case 'UTF-8 (BE)':
                     $parts['contents'] = self::UTF8_BOM.$parts['contents'];
                     break;
+                case 'UTF-8':
+                    break;
                 default:
                     $parts['contents'] = mb_convert_encoding($parts['contents'], $parts['encoding']);
             }
