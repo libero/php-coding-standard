@@ -22,7 +22,7 @@ use function strpos;
 use function token_get_all;
 use const TOKEN_PARSE;
 
-final class Tests extends TestCase
+final class RulesetTests extends TestCase
 {
     /** @var Runner */
     private static $codeSniffer;
