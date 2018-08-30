@@ -8,5 +8,10 @@
     <rule ref="PSR2"/>
 
     <rule ref="Squiz.Classes.ClassFileName"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
 
 </ruleset>
