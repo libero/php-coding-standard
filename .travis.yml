@@ -28,7 +28,7 @@ jobs:
         - stage: Code Quality
           env: CODING_STANDARDS
           script:
-              - vendor/bin/phpcs
+              - vendor/bin/phpcs -p
 
 allow_failures:
     - php: nightly
