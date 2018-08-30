@@ -12,5 +12,5 @@ class foobar
 }
 
 ---MESSAGES---
-5:1 Class name "foobar" is not in PascalCase format
+5:1 Squiz.Classes.ValidClassName.NotCamelCaps
 ---

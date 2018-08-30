@@ -12,5 +12,5 @@ interface Bar
 }
 
 ---MESSAGES---
-5:1 Interface name doesn't match filename; expected "interface Foo"
+5:1 Squiz.Classes.ClassFileName.NoMatch
 ---

@@ -12,5 +12,5 @@ class Bar
 }
 
 ---MESSAGES---
-5:1 Class name doesn't match filename; expected "class Foo"
+5:1 Squiz.Classes.ClassFileName.NoMatch
 ---

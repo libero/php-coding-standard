@@ -133,7 +133,7 @@ final class RulesetTests extends TestCase
             foreach ($messages as $line => $lineMessages) {
                 foreach ($lineMessages as $column => $columnMessages) {
                     foreach ($columnMessages as $data) {
-                        yield "{$line}:{$column} {$data['message']}";
+                        yield "{$line}:{$column} {$data['source']}";
                     }
                 }
             }

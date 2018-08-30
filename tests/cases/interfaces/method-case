@@ -13,5 +13,5 @@ interface Foo
 }
 
 ---MESSAGES---
-7:12 Method name "Foo::bar_baz" is not in camel caps format
+7:12 PSR1.Methods.CamelCapsMethodName.NotCamelCaps
 ---

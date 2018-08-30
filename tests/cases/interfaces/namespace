@@ -10,5 +10,5 @@ interface Foo
 }
 
 ---MESSAGES---
-3:1 Each interface must be in a namespace of at least one level (a top-level vendor name)
+3:1 PSR1.Classes.ClassDeclaration.MissingNamespace
 ---

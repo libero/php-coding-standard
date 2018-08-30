@@ -13,5 +13,5 @@ interface Foo
 }
 
 ---MESSAGES---
-7:11 Class constants must be uppercase; expected FOO but found foo
+7:11 Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
 ---
