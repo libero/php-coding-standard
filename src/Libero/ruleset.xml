@@ -5,7 +5,7 @@
 
     <description>The Libero coding standard.</description>
 
-    <rule ref="PSR1"/>
+    <rule ref="PSR2"/>
 
     <rule ref="Squiz.Classes.ClassFileName"/>
 
