@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Trait name must be in pascal case
+Trait name must be in camel case
 ---FILENAME---
 foobar.php
 ---CONTENTS---

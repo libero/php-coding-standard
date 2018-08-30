@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Interface name must be in pascal case
+Interface name must be in camel case
 ---FILENAME---
 foobar.php
 ---CONTENTS---
