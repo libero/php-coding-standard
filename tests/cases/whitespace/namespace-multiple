@@ -3,6 +3,8 @@ Blank line after namespace declaration
 ---CONTENTS---
 <?php
 namespace Vendor;
+
+
 $foo = 'bar';
 
 ---FIXED---
