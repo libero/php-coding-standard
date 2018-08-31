@@ -5,16 +5,16 @@ Function braces must be on separate lines.
 
 namespace Vendor;
 
-function bar() : void { $baz = 'qux'; }
+function foo() : void { $bar = 'baz'; }
 
 ---FIXED---
 <?php
 
 namespace Vendor;
 
-function bar() : void
+function foo() : void
 {
-    $baz = 'qux';
+    $bar = 'baz';
 }
 
 ---

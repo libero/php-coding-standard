@@ -9,7 +9,7 @@ namespace Vendor;
 
 class Foo
 {
-    public const foo = 'bar';
+    public const bar = 'baz';
 }
 
 ---MESSAGES---
