@@ -1,0 +1,13 @@
+---DESCRIPTION---
+Use declarations must go after the namespace declaration
+---CONTENTS---
+<?php
+use Foo;
+
+namespace Vendor;
+
+new Foo();
+
+---MESSAGES---
+2:1 PSR2.Namespaces.UseDeclaration.UseBeforeNamespace
+---
