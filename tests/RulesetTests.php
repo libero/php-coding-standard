@@ -75,6 +75,8 @@ final class RulesetTests extends TestCase
 
             $parts = array_combine(array_map('strtolower', $matches[1]), $matches[2]);
 
+            $parts['filename'] = $parts['filename'] ?? 'test.php';
+
             if (isset($parts['messages'])) {
                 $parts['messages'] = array_filter(explode("\n", $parts['messages']));
             }
@@ -125,7 +127,7 @@ final class RulesetTests extends TestCase
             }
 
             yield $file->getRelativePathname() => [
-                $parts['filename'] ?? 'test.php',
+                "{$file->getRelativePathname()}/{$parts['filename']}",
                 $parts['contents'],
                 $parts['fixed'],
                 $parts['messages'] ?? [],
@@ -142,7 +144,7 @@ final class RulesetTests extends TestCase
         }
 
         $file = new DummyFile(
-            "phpcs_input_file:${filename}\n{$content}",
+            "phpcs_input_file:before/${filename}\n{$content}",
             self::$codeSniffer->ruleset,
             self::$codeSniffer->config
         );
@@ -152,7 +154,7 @@ final class RulesetTests extends TestCase
         $file->fixer->fixFile();
 
         $file = new DummyFile(
-            "phpcs_input_file:${filename}\n{$file->fixer->getContents()}",
+            "phpcs_input_file:after/${filename}\n{$file->fixer->getContents()}",
             self::$codeSniffer->ruleset,
             self::$codeSniffer->config
         );

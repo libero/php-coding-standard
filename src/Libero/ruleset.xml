@@ -5,8 +5,12 @@
 
     <description>The Libero coding standard.</description>
 
-    <rule ref="PSR2"/>
+    <rule ref="PSR2">
+        <!-- Prefer SlevomatCodingStandard.Namespaces.UseSpacing -->
+        <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse"/>
+    </rule>
 
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing"/>
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
         <properties>
