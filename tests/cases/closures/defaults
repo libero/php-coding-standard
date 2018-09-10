@@ -5,10 +5,9 @@ Default values must go at the end
 
 namespace Vendor;
 
-function foo($bar = [], $baz)
-{
-}
+$foo = function ($bar = [], $baz) : void {
+};
 
 ---MESSAGES---
-5:25 PEAR.Functions.ValidDefaultValue.NotAtEnd
+5:29 PEAR.Functions.ValidDefaultValue.NotAtEnd
 ---
