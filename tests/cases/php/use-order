@@ -1,0 +1,31 @@
+---DESCRIPTION---
+Use statements must be ordered alphabetically
+---CONTENTS---
+<?php
+namespace Vendor;
+
+use Foo;
+use const QUX;
+use function quuz;
+use Bar\Baz;
+use const Bar\QUUX;
+use function Bar\corge;
+
+new Foo(quuz(QUX));
+new Baz(corge(QUUX));
+
+---FIXED---
+<?php
+namespace Vendor;
+
+use Bar\Baz;
+use Foo;
+use const Bar\QUUX;
+use const QUX;
+use function Bar\corge;
+use function quuz;
+
+new Foo(quuz(QUX));
+new Baz(corge(QUUX));
+
+---

@@ -5,7 +5,7 @@ One use statement per declaration
 
 namespace Vendor;
 
-use Foo, Bar;
+use Bar, Foo;
 
 new Foo();
 new Bar();
@@ -15,8 +15,8 @@ new Bar();
 
 namespace Vendor;
 
-use Foo;
 use Bar;
+use Foo;
 
 new Foo();
 new Bar();

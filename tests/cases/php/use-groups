@@ -16,9 +16,9 @@ use Foo\Bar;
 use Foo\Baz as Qux;
 use Foo\Quux\Quuz;
 use const Foo\CORGE;
-use function Foo\grault;
 use const Foo\GARPLY as WALDO;
 use const Foo\Quux\FRED;
+use function Foo\grault;
 use function Foo\plugh as xyzzy;
 use function Foo\Quux\thud;
 
