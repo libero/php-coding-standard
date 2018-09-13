@@ -10,7 +10,6 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Runner;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
-use const TOKEN_PARSE;
 use function array_combine;
 use function array_filter;
 use function array_map;
@@ -26,6 +25,7 @@ use function sort;
 use function str_replace;
 use function strpos;
 use function token_get_all;
+use const TOKEN_PARSE;
 
 final class RulesetTests extends TestCase
 {

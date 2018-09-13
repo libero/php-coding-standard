@@ -4,11 +4,11 @@ Use statements must be ordered alphabetically
 <?php
 namespace Vendor;
 
-use Foo;
 use const QUX;
+use Foo;
 use function quuz;
-use Bar\Baz;
 use const Bar\QUUX;
+use Bar\Baz;
 use function Bar\corge;
 
 new Foo(quuz(QUX));
@@ -20,10 +20,10 @@ namespace Vendor;
 
 use Bar\Baz;
 use Foo;
-use const Bar\QUUX;
-use const QUX;
 use function Bar\corge;
 use function quuz;
+use const Bar\QUUX;
+use const QUX;
 
 new Foo(quuz(QUX));
 new Baz(corge(QUUX));

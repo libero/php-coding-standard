@@ -10,10 +10,10 @@ use Bar;
 
 use Foo;
 
-use const BAZ;
-
-
 use function qux;
+
+
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 
@@ -24,8 +24,8 @@ namespace Vendor;
 
 use Bar;
 use Foo;
-use const BAZ;
 use function qux;
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 
