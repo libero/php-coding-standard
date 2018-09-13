@@ -4,40 +4,28 @@ Use statements must be ordered alphabetically
 <?php
 namespace Vendor;
 
-use const GARPLY;
-use Foo\Barbaz;
-use Foo\Barquuz;
+use const QUX;
+use Foo;
 use function quuz;
-use function Foo\grault;
-use Foo\BarQuux;
-use const Foo\WALDO;
-use Foo\BarQux;
-use const Foo\FRED;
-use function Foo\corge;
+use const Bar\QUUX;
+use Bar\Baz;
+use function Bar\corge;
 
-new Barbaz(corge(FRED));
-new BarQux(grault(WALDO));
-new BarQuux(quuz(GARPLY));
-new Barquuz();
+new Foo(quuz(QUX));
+new Baz(corge(QUUX));
 
 ---FIXED---
 <?php
 namespace Vendor;
 
-use Foo\BarQuux;
-use Foo\BarQux;
-use Foo\Barbaz;
-use Foo\Barquuz;
-use function Foo\corge;
-use function Foo\grault;
+use Bar\Baz;
+use Foo;
+use function Bar\corge;
 use function quuz;
-use const Foo\FRED;
-use const Foo\WALDO;
-use const GARPLY;
+use const Bar\QUUX;
+use const QUX;
 
-new Barbaz(corge(FRED));
-new BarQux(grault(WALDO));
-new BarQuux(quuz(GARPLY));
-new Barquuz();
+new Foo(quuz(QUX));
+new Baz(corge(QUUX));
 
 ---

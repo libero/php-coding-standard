@@ -3,19 +3,19 @@
 namespace tests\Libero\CodingStandard;
 
 use LogicException;
-use PHPUnit\Framework\TestCase;
+use ParseError;
 use PHP_CodeSniffer\Config;
 use PHP_CodeSniffer\Files\DummyFile;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Runner;
-use ParseError;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
-use function Functional\flatten;
-use function Functional\select_keys;
 use function array_combine;
 use function array_filter;
 use function array_map;
 use function explode;
+use function Functional\flatten;
+use function Functional\select_keys;
 use function implode;
 use function ini_get;
 use function mb_convert_encoding;
