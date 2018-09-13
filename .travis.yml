@@ -30,6 +30,11 @@ jobs:
           script:
               - vendor/bin/phpcs -p
 
+stages:
+    - Test
+    - name: Code Quality
+      if: type = pull_request
+
 allow_failures:
     - php: nightly
 
