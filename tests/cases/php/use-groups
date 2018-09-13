@@ -8,6 +8,10 @@ use Foo\{ Bar, Baz as Qux, Quux\Quuz, const CORGE, function grault };
 use const Foo\{ GARPLY as WALDO, Quux\FRED };
 use function Foo\{ plugh as xyzzy, Quux\thud };
 
+new Bar(grault(CORGE));
+new Qux(xyzzy(WALDO));
+new Quuz(thud(FRED));
+
 ---FIXED---
 <?php
 namespace Vendor;
@@ -21,5 +25,9 @@ use const Foo\GARPLY as WALDO;
 use const Foo\Quux\FRED;
 use function Foo\plugh as xyzzy;
 use function Foo\Quux\thud;
+
+new Bar(grault(CORGE));
+new Qux(xyzzy(WALDO));
+new Quuz(thud(FRED));
 
 ---

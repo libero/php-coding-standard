@@ -1,0 +1,18 @@
+---DESCRIPTION---
+Use statements must be used
+---CONTENTS---
+<?php
+namespace Vendor;
+
+use Foo;
+use Bar\Baz;
+use const QUX;
+use const Bar\QUUX;
+use function quuz;
+use function Bar\corge;
+
+---FIXED---
+<?php
+namespace Vendor;
+
+---
