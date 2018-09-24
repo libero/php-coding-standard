@@ -5,8 +5,8 @@ Use groups must not be used
 namespace Vendor;
 
 use Foo\{ Bar, Baz as Qux, Quux\Quuz, const CORGE, function grault };
-use const Foo\{ GARPLY as WALDO, Quux\FRED };
 use function Foo\{ plugh as xyzzy, Quux\thud };
+use const Foo\{ GARPLY as WALDO, Quux\FRED };
 
 new Bar(grault(CORGE));
 new Qux(xyzzy(WALDO));
@@ -19,12 +19,12 @@ namespace Vendor;
 use Foo\Bar;
 use Foo\Baz as Qux;
 use Foo\Quux\Quuz;
-use const Foo\CORGE;
 use function Foo\grault;
-use const Foo\GARPLY as WALDO;
-use const Foo\Quux\FRED;
 use function Foo\plugh as xyzzy;
 use function Foo\Quux\thud;
+use const Foo\CORGE;
+use const Foo\GARPLY as WALDO;
+use const Foo\Quux\FRED;
 
 new Bar(grault(CORGE));
 new Qux(xyzzy(WALDO));

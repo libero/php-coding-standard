@@ -5,15 +5,15 @@ No spaces between use declarations
 
 namespace Vendor;
 
-use Foo;
-
-
 use Bar;
 
-use const BAZ;
 
+use Foo;
 
 use function qux;
+
+
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 
@@ -22,10 +22,10 @@ new Foo(new Bar(qux(BAZ)));
 
 namespace Vendor;
 
-use Foo;
 use Bar;
-use const BAZ;
+use Foo;
 use function qux;
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 
