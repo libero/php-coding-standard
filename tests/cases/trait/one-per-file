@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 trait Foo
@@ -16,5 +18,5 @@ trait Bar
 }
 
 ---MESSAGES---
-9:1 PSR1.Classes.ClassDeclaration.MultipleClasses
+11:1 PSR1.Classes.ClassDeclaration.MultipleClasses
 ---

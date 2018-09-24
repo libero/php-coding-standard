@@ -5,6 +5,8 @@ UTF-8 (BE)
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 ---MESSAGES---
 1:1 Generic.Files.ByteOrderMark.Found
 ---

@@ -2,11 +2,17 @@
 Single blank line after namespace declaration
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 $foo = 'bar';
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 $foo = 'bar';

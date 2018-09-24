@@ -5,6 +5,8 @@ Must use Unix LF (linefeed) line endings
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 ---FIXED-LINE-ENDINGS---
 \n
 ---

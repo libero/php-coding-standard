@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 class Foo
@@ -16,6 +18,6 @@ class Bar
 }
 
 ---MESSAGES---
-9:1 PSR1.Classes.ClassDeclaration.MultipleClasses
-9:1 Squiz.Classes.ClassFileName.NoMatch
+11:1 PSR1.Classes.ClassDeclaration.MultipleClasses
+11:1 Squiz.Classes.ClassFileName.NoMatch
 ---

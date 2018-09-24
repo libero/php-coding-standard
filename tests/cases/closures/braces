@@ -3,12 +3,16 @@ Closure braces must be on separate lines.
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 $foo = function () : void { $baz = 'qux'; };
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 

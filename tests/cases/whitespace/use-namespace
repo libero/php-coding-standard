@@ -3,6 +3,8 @@ Use declarations must go after the namespace declaration
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 use Foo;
 
 namespace Vendor;
@@ -10,5 +12,5 @@ namespace Vendor;
 new Foo();
 
 ---MESSAGES---
-3:1 PSR2.Namespaces.UseDeclaration.UseBeforeNamespace
+5:1 PSR2.Namespaces.UseDeclaration.UseBeforeNamespace
 ---

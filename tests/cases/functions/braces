@@ -3,12 +3,16 @@ Function braces must be on separate lines.
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 function foo() : void { $bar = 'baz'; }
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 
