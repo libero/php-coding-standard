@@ -1,0 +1,16 @@
+---DESCRIPTION---
+Forbid Trait suffix
+---FILENAME---
+FooTrait.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+trait FooTrait
+{
+}
+
+---MESSAGES---
+5:1 Libero.Classes.SuperfluousTraitNaming.SuperfluousSuffix
+---

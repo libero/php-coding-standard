@@ -1,0 +1,16 @@
+---DESCRIPTION---
+Forbid Abstract prefix
+---FILENAME---
+AbstractFoo.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+abstract class AbstractFoo
+{
+}
+
+---MESSAGES---
+5:10 SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix
+---

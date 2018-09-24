@@ -1,0 +1,18 @@
+---DESCRIPTION---
+Forbid Exception suffix
+---FILENAME---
+FooException.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+use Exception;
+
+class FooException extends Exception
+{
+}
+
+---MESSAGES---
+7:1 SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
+---
