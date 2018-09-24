@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 class Foo
@@ -13,5 +15,5 @@ class Foo
 }
 
 ---MESSAGES---
-7:18 Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
+9:18 Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
 ---

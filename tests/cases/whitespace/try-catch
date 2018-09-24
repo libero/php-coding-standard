@@ -3,6 +3,8 @@ Try-catch statements must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 try{
 
     $foo = 'bar';
@@ -15,6 +17,8 @@ OtherExceptionType $e) { $foo = 'bar'; } finally {
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 try {
     $foo = 'bar';

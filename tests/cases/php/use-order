@@ -2,6 +2,9 @@
 Use statements must be ordered alphabetically
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use const QUX;
@@ -16,6 +19,9 @@ new Baz(corge(QUUX));
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Bar\Baz;

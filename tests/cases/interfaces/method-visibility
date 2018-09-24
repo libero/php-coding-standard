@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 interface Foo
@@ -13,5 +15,5 @@ interface Foo
 }
 
 ---MESSAGES---
-7:5 Squiz.Scope.MethodScope.Missing
+9:5 Squiz.Scope.MethodScope.Missing
 ---

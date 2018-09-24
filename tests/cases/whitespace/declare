@@ -1,14 +1,8 @@
 ---DESCRIPTION---
-Blank line after use declarations
+Single blank line before and after declare directives
 ---CONTENTS---
-<?php
-
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
 namespace Vendor;
-
-use Foo;
-new Foo();
 
 ---FIXED---
 <?php
@@ -16,9 +10,5 @@ new Foo();
 declare(strict_types=1);
 
 namespace Vendor;
-
-use Foo;
-
-new Foo();
 
 ---

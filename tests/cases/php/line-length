@@ -3,8 +3,10 @@ Lines must not exceed 120 characters
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 $foo = '890123456789001234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789';
 
 ---MESSAGES---
-3:121 Generic.Files.LineLength.TooLong
+5:121 Generic.Files.LineLength.TooLong
 ---

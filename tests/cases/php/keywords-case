@@ -3,6 +3,8 @@ PHP keywords must be in lower case
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 TRY {
     FOR ($i = 1; $i <= 10; $i++) {
         ECHO $i;
@@ -15,6 +17,8 @@ DIE;
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 try {
     for ($i = 1; $i <= 10; $i++) {

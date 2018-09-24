@@ -2,6 +2,9 @@
 Use statements must not begin with a backslash
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use \Foo;
@@ -12,6 +15,9 @@ new Foo(baz(BAR));
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo;

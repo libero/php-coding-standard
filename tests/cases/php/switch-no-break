@@ -3,6 +3,8 @@ Switch cases must have a comment if they do not have a break
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 switch ($expr) {
     case 0:
         echo 'foo';
@@ -14,5 +16,5 @@ switch ($expr) {
 }
 
 ---MESSAGES---
-4:5 PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
+6:5 PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 ---

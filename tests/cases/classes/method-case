@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 class Foo
@@ -15,5 +17,5 @@ class Foo
 }
 
 ---MESSAGES---
-7:12 PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+9:12 PSR1.Methods.CamelCapsMethodName.NotCamelCaps
 ---
