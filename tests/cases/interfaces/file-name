@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 interface Bar
@@ -12,5 +14,5 @@ interface Bar
 }
 
 ---MESSAGES---
-5:1 Squiz.Classes.ClassFileName.NoMatch
+7:1 Squiz.Classes.ClassFileName.NoMatch
 ---

@@ -2,6 +2,9 @@
 Use groups must not be used
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo\{ Bar, Baz as Qux, Quux\Quuz, const CORGE, function grault };
@@ -14,6 +17,9 @@ new Quuz(thud(FRED));
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo\Bar;

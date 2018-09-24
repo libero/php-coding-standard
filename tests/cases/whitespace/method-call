@@ -3,6 +3,8 @@ Method calls must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 $foo -> bar ( $arg1 );
 
 $foo
@@ -13,6 +15,8 @@ $foo
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 $foo->bar($arg1);
 

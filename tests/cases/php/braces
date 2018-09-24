@@ -3,6 +3,8 @@ Braces must be used
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 if (true)
     return 'foo';
 
@@ -10,6 +12,8 @@ return 'bar';
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 if (true) {
     return 'foo';
