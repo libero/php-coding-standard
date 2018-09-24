@@ -1,0 +1,29 @@
+---DESCRIPTION---
+Types must be in lower case
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+function foo(String $bar, ARRAY $baz) : vOiD
+{
+}
+
+function qux(Bool $quux, OBJECT $quuz) : iTeRaBlE
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+function foo(string $bar, array $baz) : void
+{
+}
+
+function qux(bool $quux, object $quuz) : iterable
+{
+}
+
+---

@@ -1,0 +1,37 @@
+---DESCRIPTION---
+Types must be in lower case
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public function bar(String $baz, ARRAY $qux) : vOiD
+    {
+    }
+
+    abstract public function quux(Bool $quuz, OBJECT $corge) : iTeRaBlE;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public function bar(string $baz, array $qux) : void
+    {
+    }
+
+    abstract public function quux(bool $quuz, object $corge) : iterable;
+}
+
+---
