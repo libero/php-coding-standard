@@ -1,0 +1,25 @@
+---DESCRIPTION---
+Class constants must have visibility declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+namespace Vendor;
+
+class Foo
+{
+    const FOO = 'bar';
+}
+
+---FIXED---
+<?php
+
+namespace Vendor;
+
+class Foo
+{
+    public const FOO = 'bar';
+}
+
+---
