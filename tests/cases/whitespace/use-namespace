@@ -5,19 +5,12 @@ Use declarations must go after the namespace declaration
 
 declare(strict_types=1);
 
-use Foo;
+use Foo\Bar;
 
 namespace Vendor;
 
-new Foo();
+new Bar();
 
----FIXED---
-<?php
-
-declare(strict_types=1);
-
-namespace Vendor;
-
-new Foo();
-
+---MESSAGES---
+5:1 PSR2.Namespaces.UseDeclaration.UseBeforeNamespace
 ---
