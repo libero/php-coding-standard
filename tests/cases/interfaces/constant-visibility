@@ -1,0 +1,29 @@
+---DESCRIPTION---
+Interface constants must have visibility declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    const FOO = 'bar';
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public const FOO = 'bar';
+}
+
+---

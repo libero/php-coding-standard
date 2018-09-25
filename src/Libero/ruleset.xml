@@ -11,6 +11,11 @@
     </rule>
 
     <rule ref="Generic.PHP.LowerCaseType"/>
+    <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
+        <properties>
+            <property name="fixable" value="true"/>
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
         <properties>
             <property name="psr12Compatible" value="true"/>
