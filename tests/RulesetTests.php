@@ -21,6 +21,7 @@ use function Functional\select_keys;
 use function implode;
 use function ini_get;
 use function mb_convert_encoding;
+use function mb_detect_encoding;
 use function preg_match_all;
 use function preg_replace;
 use function sort;
