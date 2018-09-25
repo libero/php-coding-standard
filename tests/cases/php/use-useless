@@ -1,0 +1,25 @@
+---DESCRIPTION---
+Use statements must not be from the same namespace
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Foo;
+
+use Foo\Bar;
+use function Foo\baz;
+use const Foo\QUX;
+
+new Bar(baz(QUX));
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Foo;
+
+new Bar(baz(QUX));
+
+---

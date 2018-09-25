@@ -1,15 +1,13 @@
 ---DESCRIPTION---
-Use declarations must go after the namespace declaration
+No global fallbacks
 ---CONTENTS---
 <?php
 
 declare(strict_types=1);
 
-use Foo;
-
 namespace Vendor;
 
-new Foo();
+date(DATE_ATOM);
 
 ---FIXED---
 <?php
@@ -18,6 +16,9 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-new Foo();
+use function date;
+use const DATE_ATOM;
+
+date(DATE_ATOM);
 
 ---
