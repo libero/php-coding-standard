@@ -5,6 +5,8 @@ foobar.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 interface foobar
@@ -12,5 +14,5 @@ interface foobar
 }
 
 ---MESSAGES---
-5:1 Squiz.Classes.ValidClassName.NotCamelCaps
+7:1 Squiz.Classes.ValidClassName.NotCamelCaps
 ---

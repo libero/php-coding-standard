@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 class Foo
@@ -13,5 +15,5 @@ class Foo
 }
 
 ---MESSAGES---
-7:13 PSR2.Classes.PropertyDeclaration.Underscore
+9:13 PSR2.Classes.PropertyDeclaration.Underscore
 ---

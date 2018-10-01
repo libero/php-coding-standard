@@ -1,14 +1,12 @@
 ---DESCRIPTION---
-Blank line after use declarations
+Directives must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
-declare(strict_types=1);
+declare(strict_types   =
+  1);
 
 namespace Vendor;
-
-use Foo;
-new Foo();
 
 ---FIXED---
 <?php
@@ -16,9 +14,5 @@ new Foo();
 declare(strict_types=1);
 
 namespace Vendor;
-
-use Foo;
-
-new Foo();
 
 ---

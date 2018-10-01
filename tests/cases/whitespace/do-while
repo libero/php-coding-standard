@@ -3,6 +3,8 @@ Do-while statements must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 do
 {
 
@@ -13,6 +15,8 @@ $expr );
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 do {
     $foo = 'bar';

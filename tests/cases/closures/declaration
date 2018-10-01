@@ -3,6 +3,8 @@ Closures must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 $foo = function   ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...$quuz   )use  ( &$foo)   :
@@ -20,6 +22,8 @@ $corge = function
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 

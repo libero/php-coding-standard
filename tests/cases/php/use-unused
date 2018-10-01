@@ -2,6 +2,9 @@
 Use statements must be used
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo;
@@ -13,6 +16,9 @@ use function Bar\corge;
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 ---
