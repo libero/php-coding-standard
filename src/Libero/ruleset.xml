@@ -10,6 +10,7 @@
         <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse"/>
     </rule>
 
+    <rule ref="Generic.PHP.LowerCaseType"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
         <properties>
             <property name="fixable" value="true"/>
