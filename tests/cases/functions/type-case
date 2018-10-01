@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Types must be in lower case
+Primitive types must be in lower case
 ---CONTENTS---
 <?php
 
