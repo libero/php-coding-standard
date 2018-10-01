@@ -3,6 +3,8 @@ Foreach statements must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 foreach(
 $iterable as  $key=>
 $value )
@@ -12,6 +14,8 @@ $foo = 'bar'; }
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 foreach ($iterable as $key => $value) {
     $foo = 'bar';

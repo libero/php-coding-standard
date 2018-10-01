@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Method braces must be on separate lines.
+Class constants must have visibility declared
 ---FILENAME---
 Foo.php
 ---CONTENTS---
@@ -11,7 +11,7 @@ namespace Vendor;
 
 class Foo
 {
-    public function bar() : void { $baz = 'qux'; }
+    const FOO = 'bar';
 }
 
 ---FIXED---
@@ -23,10 +23,7 @@ namespace Vendor;
 
 class Foo
 {
-    public function bar() : void
-    {
-        $baz = 'qux';
-    }
+    public const FOO = 'bar';
 }
 
 ---

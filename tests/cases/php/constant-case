@@ -3,12 +3,16 @@ PHP constants must be in lower case
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 $foo = TRUE;
 $bar = FALSE;
 $baz = NULL;
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 $foo = true;
 $bar = false;

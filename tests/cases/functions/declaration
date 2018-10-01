@@ -3,6 +3,8 @@ Functions must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 function foo  ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...$quuz   ):
@@ -18,6 +20,8 @@ function corge
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 

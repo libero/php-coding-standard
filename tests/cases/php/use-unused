@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Closure braces must be on separate lines.
+Use statements must be used
 ---CONTENTS---
 <?php
 
@@ -7,7 +7,12 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-$foo = function () : void { $baz = 'qux'; };
+use Foo;
+use Bar\Baz;
+use const QUX;
+use const Bar\QUUX;
+use function quuz;
+use function Bar\corge;
 
 ---FIXED---
 <?php
@@ -15,9 +20,5 @@ $foo = function () : void { $baz = 'qux'; };
 declare(strict_types=1);
 
 namespace Vendor;
-
-$foo = function () : void {
-    $baz = 'qux';
-};
 
 ---

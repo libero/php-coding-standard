@@ -5,10 +5,12 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 interface Foo
 {
 }
 
 ---MESSAGES---
-3:1 PSR1.Classes.ClassDeclaration.MissingNamespace
+5:1 PSR1.Classes.ClassDeclaration.MissingNamespace
 ---

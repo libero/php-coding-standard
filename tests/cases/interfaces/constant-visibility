@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Method braces must be on separate lines.
+Interface constants must have visibility declared
 ---FILENAME---
 Foo.php
 ---CONTENTS---
@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-class Foo
+interface Foo
 {
-    public function bar() : void { $baz = 'qux'; }
+    const FOO = 'bar';
 }
 
 ---FIXED---
@@ -21,12 +21,9 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-class Foo
+interface Foo
 {
-    public function bar() : void
-    {
-        $baz = 'qux';
-    }
+    public const FOO = 'bar';
 }
 
 ---

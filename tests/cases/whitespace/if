@@ -3,6 +3,8 @@ If statements must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 if  ( $expr1 ) { $foo = 'bar';
 } else if (
 $expr2) {
@@ -17,6 +19,8 @@ else
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 if ($expr1) {
     $foo = 'bar';

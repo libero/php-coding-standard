@@ -3,6 +3,8 @@ For statements must not have unnecessary whitespace
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 for(
 $i =
 0;$i<10; $i++ )
@@ -12,6 +14,8 @@ $i =
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 for ($i = 0; $i < 10; $i++) {
     $foo = 'bar';
