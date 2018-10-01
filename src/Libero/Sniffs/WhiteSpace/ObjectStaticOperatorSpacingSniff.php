@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Libero\CodingStandard\Sniffs\WhiteSpace;
+namespace Libero\CodingStandard\Libero\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ObjectOperatorSpacingSniff as BaseObjectOperatorSpacingSniff;
 use const T_DOUBLE_COLON;
