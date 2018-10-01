@@ -5,6 +5,8 @@ FooException.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Exception;
@@ -14,5 +16,5 @@ class FooException extends Exception
 }
 
 ---MESSAGES---
-7:1 SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
+9:1 SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 ---

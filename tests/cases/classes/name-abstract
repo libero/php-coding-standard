@@ -5,6 +5,8 @@ AbstractFoo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 abstract class AbstractFoo
@@ -12,5 +14,5 @@ abstract class AbstractFoo
 }
 
 ---MESSAGES---
-5:10 SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix
+7:10 SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix
 ---

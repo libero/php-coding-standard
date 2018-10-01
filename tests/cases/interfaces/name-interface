@@ -5,6 +5,8 @@ FooInterface.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 interface FooInterface
@@ -12,5 +14,5 @@ interface FooInterface
 }
 
 ---MESSAGES---
-5:1 SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix
+7:1 SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix
 ---
