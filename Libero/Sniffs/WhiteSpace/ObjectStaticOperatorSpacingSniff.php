@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Libero\CodingStandard\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ObjectOperatorSpacingSniff as BaseObjectOperatorSpacingSniff;
