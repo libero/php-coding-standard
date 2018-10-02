@@ -1,0 +1,24 @@
+---DESCRIPTION---
+No global fallbacks
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+date(DATE_ATOM);
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+use function date;
+use const DATE_ATOM;
+
+date(DATE_ATOM);
+
+---
