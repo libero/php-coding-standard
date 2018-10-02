@@ -5,7 +5,7 @@ Method calls must not have unnecessary whitespace
 
 declare(strict_types=1);
 
-$foo -> bar ( $arg1 );
+$foo -> bar ( $arg1 ) -> baz ( );
 
 $foo
 -> bar ($arg1
@@ -13,19 +13,30 @@ $foo
 -> baz ($arg1
 ,$arg2);
 
+$fooBar()
+    ->baz()
+    ->qux()
+;
+
 ---FIXED---
 <?php
 
 declare(strict_types=1);
 
-$foo->bar($arg1);
+$foo->bar($arg1)->baz();
 
-$foo->bar(
-    $arg1,
-    $arg2
-)->baz(
-    $arg1,
-    $arg2
-);
+$foo
+    ->bar(
+        $arg1,
+        $arg2
+    )
+    ->baz(
+        $arg1,
+        $arg2
+    );
+
+$fooBar()
+    ->baz()
+    ->qux();
 
 ---
