@@ -1,0 +1,32 @@
+---DESCRIPTION---
+Use statements must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+new \Foo(\bar(\BAZ));
+new \Qux\Quux(\Qux\quuz(\Qux\CORGE));
+new \Vendor\Grault(\Vendor\garply(\Vendor\WALDO));
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+use Foo;
+use Qux\Quux;
+use function bar;
+use function Qux\quuz;
+use const BAZ;
+use const Qux\CORGE;
+
+new Foo(bar(BAZ));
+new Quux(quuz(CORGE));
+new Grault(garply(WALDO));
+
+---
