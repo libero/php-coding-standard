@@ -7,8 +7,10 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-function foo() : void {
-    function bar() : void {
+function foo() : void
+{
+    function bar() : void
+    {
     }
 }
 
