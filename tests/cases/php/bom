@@ -9,4 +9,6 @@ declare(strict_types=1);
 
 ---MESSAGES---
 1:1 Generic.Files.ByteOrderMark.Found
+1:1 Generic.Files.InlineHTML.Found
+1:2 Generic.PHP.CharacterBeforePHPOpeningTag.Found
 ---

@@ -10,6 +10,8 @@
         <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse"/>
     </rule>
 
+    <rule ref="Generic.Files.InlineHTML"/>
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
     <rule ref="Generic.PHP.LowerCaseType"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
