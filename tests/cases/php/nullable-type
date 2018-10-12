@@ -1,0 +1,21 @@
+---DESCRIPTION---
+Must use nullable types
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+function foo(Bar $baz = null, int $qux = null) : void
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+function foo(?Bar $baz = null, ?int $qux = null) : void
+{
+}
+
+---
