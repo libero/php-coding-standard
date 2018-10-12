@@ -18,6 +18,8 @@
         "ext-mbstring": "*",
         "ext-tokenizer": "*",
         "lstrojny/functional-php": "^1.8",
+        "phpstan/phpstan": "^0.10",
+        "phpstan/phpstan-phpunit": "^0.10",
         "phpunit/phpunit": "^7.3",
         "symfony/finder": "^4.1"
     },
