@@ -32,7 +32,11 @@
             <property name="allowFallbackGlobalFunctions" value="false"/>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+        <properties>
+            <property name="searchAnnotations" value="true"/>
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash"/>
     <rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace"/>
     <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing"/>
