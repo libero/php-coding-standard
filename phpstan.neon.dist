@@ -1,0 +1,11 @@
+parameters:
+    autoload_files:
+        - vendor/squizlabs/php_codesniffer/autoload.php
+    level: max
+    paths:
+        - src
+        - tests
+
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
