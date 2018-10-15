@@ -59,7 +59,7 @@ final class RulesetTests extends TestCase
         sort($actual);
         sort($messages);
 
-        $this->assertSame($messages, $actual, $description);
+        $this->assertSame($messages, $actual, $description ?? '');
         if ($fixedEncoding) {
             $this->assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
         }
