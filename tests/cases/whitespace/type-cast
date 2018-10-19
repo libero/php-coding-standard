@@ -1,0 +1,22 @@
+---DESCRIPTION---
+Single space after type casting and none inside
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = (bool)$foo;
+$bar = ( int  )  $bar;
+$baz = (  float)
+$baz;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = (bool) $foo;
+$bar = (int) $bar;
+$baz = (float) $baz;
+
+---
