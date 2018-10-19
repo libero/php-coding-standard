@@ -1,0 +1,13 @@
+---DESCRIPTION---
+Backticks must not be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$list = `ls -la`;
+
+---MESSAGES---
+5:9 Generic.PHP.BacktickOperator.Found
+5:16 Generic.PHP.BacktickOperator.Found
+---
