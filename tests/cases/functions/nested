@@ -1,0 +1,19 @@
+---DESCRIPTION---
+Functions must not be nested
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+function foo() : void
+{
+    function bar() : void
+    {
+    }
+}
+
+---MESSAGES---
+9:5 Squiz.PHP.InnerFunctions.NotAllowed
+---
