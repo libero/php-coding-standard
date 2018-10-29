@@ -1,0 +1,23 @@
+---DESCRIPTION---
+Short list must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+list($foo, $bar) = [$baz, $qux];
+
+foreach ($quux as list('quuz' => $corge, 'grault' => $plugh)) {
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+[$foo, $bar] = [$baz, $qux];
+
+foreach ($quux as ['quuz' => $corge, 'grault' => $plugh]) {
+}
+
+---
