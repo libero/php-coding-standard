@@ -1,0 +1,31 @@
+---DESCRIPTION---
+Short arrays must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = array('bar');
+
+$baz = array(
+    'qux',
+);
+
+$quux = function (array $quuz = array()) {
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = ['bar'];
+
+$baz = [
+    'qux',
+];
+
+$quux = function (array $quuz = []) {
+};
+
+---
