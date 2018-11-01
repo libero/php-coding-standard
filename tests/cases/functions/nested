@@ -16,4 +16,5 @@ function foo() : void
 
 ---MESSAGES---
 9:5 Squiz.PHP.InnerFunctions.NotAllowed
+11:5 Squiz.WhiteSpace.FunctionSpacing.After
 ---
