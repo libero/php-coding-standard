@@ -62,6 +62,9 @@
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.PHP.InnerFunctions"/>
+    <rule ref="Squiz.Strings.DoubleQuoteUsage">
+        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+    </rule>
     <rule ref="Squiz.WhiteSpace.CastSpacing"/>
     <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
         <properties>

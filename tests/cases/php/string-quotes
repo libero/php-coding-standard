@@ -1,0 +1,23 @@
+---DESCRIPTION---
+Double quotes must not be used for strings unless required
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = "bar";
+$baz = "qux {$quux}";
+$quuz = "'";
+$corge = "\n";
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = 'bar';
+$baz = "qux {$quux}";
+$quuz = "'";
+$corge = "\n";
+
+---
