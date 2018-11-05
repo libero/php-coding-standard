@@ -11,6 +11,10 @@ namespace Vendor;
 
 trait Foo
 {
+    /**
+     * @param resource $baz
+     * @param resource $qux
+     */
     public function bar  ( $baz  ,&$qux,  bool$quux, ? string  $quuz    =null   ,  string...$corge   ):
     void
     {
@@ -26,6 +30,10 @@ namespace Vendor;
 
 trait Foo
 {
+    /**
+     * @param resource $baz
+     * @param resource $qux
+     */
     public function bar($baz, &$qux, bool $quux, ?string $quuz = null, string ...$corge) : void
     {
     }

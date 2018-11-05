@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-function foo($bar = [], $baz)
+function foo(string $bar = '', string $baz) : void
 {
 }
 
 ---MESSAGES---
-7:25 PEAR.Functions.ValidDefaultValue.NotAtEnd
+7:39 PEAR.Functions.ValidDefaultValue.NotAtEnd
 ---

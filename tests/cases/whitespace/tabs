@@ -5,10 +5,10 @@ Must use spaces not tabs
 
 declare(strict_types=1);
 
-function foo(array $bar) : iterable
+function foo() : void
 {
-	foreach ($bar as $baz) {
-		yield $baz;
+	foreach ([] as $bar) {
+		echo $bar;
 	}
 }
 
@@ -17,10 +17,10 @@ function foo(array $bar) : iterable
 
 declare(strict_types=1);
 
-function foo(array $bar) : iterable
+function foo() : void
 {
-    foreach ($bar as $baz) {
-        yield $baz;
+    foreach ([] as $bar) {
+        echo $bar;
     }
 }
 

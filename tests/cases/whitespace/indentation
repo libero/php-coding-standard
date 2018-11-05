@@ -5,10 +5,10 @@
 
 declare(strict_types=1);
 
-function foo(array $bar) : iterable
+function foo() : void
    {
- foreach ($bar as $baz) {
-yield $baz;
+ foreach ([] as $bar) {
+echo $bar;
  }
   }
 
@@ -17,10 +17,10 @@ yield $baz;
 
 declare(strict_types=1);
 
-function foo(array $bar) : iterable
+function foo() : void
 {
-    foreach ($bar as $baz) {
-        yield $baz;
+    foreach ([] as $bar) {
+        echo $bar;
     }
 }
 

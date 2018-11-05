@@ -1,0 +1,47 @@
+---DESCRIPTION---
+Method braces must be on separate lines.
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar() : string;
+
+    public function baz() : void;
+
+    /**
+     * @return resource
+     */
+    public function qux();
+
+    public function quuz();
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar() : string;
+
+    public function baz() : void;
+
+    /**
+     * @return resource
+     */
+    public function qux();
+
+    public function quuz() : void;
+}
+
+---

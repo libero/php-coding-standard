@@ -32,6 +32,7 @@
     </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
         <properties>
+            <property name="searchAnnotations" value="true"/>
             <property name="allowFallbackGlobalConstants" value="false"/>
             <property name="allowFallbackGlobalFunctions" value="false"/>
         </properties>
@@ -59,6 +60,9 @@
         <properties>
             <property name="spacesCountBeforeColon" value="1"/>
         </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint"/>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.PHP.InnerFunctions"/>
