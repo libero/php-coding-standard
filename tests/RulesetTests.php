@@ -88,7 +88,7 @@ final class RulesetTests extends TestCase
             if (empty($parts['contents'])) {
                 throw new LogicException("Couldn't find contents in {$file->getRelativePathname()}");
             } elseif (empty(select_keys($parts, $keys))) {
-                throw new LogicException("Expected one of ".implode(', ', $keys)." in {$file->getRelativePathname()}");
+                throw new LogicException('Expected one of '.implode(', ', $keys)." in {$file->getRelativePathname()}");
             }
 
             try {
