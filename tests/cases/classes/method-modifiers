@@ -5,6 +5,8 @@ Foo.php
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 abstract class Foo
@@ -18,6 +20,8 @@ abstract class Foo
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 

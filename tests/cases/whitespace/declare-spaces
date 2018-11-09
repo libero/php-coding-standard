@@ -1,0 +1,18 @@
+---DESCRIPTION---
+Directives must not have unnecessary whitespace
+---CONTENTS---
+<?php
+
+declare(strict_types   =
+  1);
+
+namespace Vendor;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+---

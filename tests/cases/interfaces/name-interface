@@ -1,0 +1,18 @@
+---DESCRIPTION---
+Forbid Interface suffix
+---FILENAME---
+FooInterface.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface FooInterface
+{
+}
+
+---MESSAGES---
+7:1 SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix
+---

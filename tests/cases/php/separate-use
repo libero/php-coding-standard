@@ -3,6 +3,8 @@ One use statement per declaration
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Bar, Foo;
@@ -14,6 +16,8 @@ new Bar(qux(QUUZ));
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 namespace Vendor;
 

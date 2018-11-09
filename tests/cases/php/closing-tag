@@ -3,12 +3,16 @@ No closing PHP tags at the end of files
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 $foo = 'bar';
 
 ?>
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 $foo = 'bar';
 

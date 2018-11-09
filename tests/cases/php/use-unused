@@ -1,0 +1,45 @@
+---DESCRIPTION---
+Use statements must be used
+---FILENAME---
+Grault.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+use Foo;
+use Bar\Baz;
+use Garply;
+use const QUX;
+use const Bar\QUUX;
+use function quuz;
+use function Bar\corge;
+
+interface Grault
+{
+    /**
+     * @throws Garply
+     */
+    public function waldo() : void;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+use Garply;
+
+interface Grault
+{
+    /**
+     * @throws Garply
+     */
+    public function waldo() : void;
+}
+
+---

@@ -3,29 +3,33 @@ No spaces between use declarations
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
-
-use Foo;
-
 
 use Bar;
 
-use const BAZ;
 
+use Foo;
 
 use function qux;
+
+
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 
 ---FIXED---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
-use Foo;
 use Bar;
-use const BAZ;
+use Foo;
 use function qux;
+use const BAZ;
 
 new Foo(new Bar(qux(BAZ)));
 

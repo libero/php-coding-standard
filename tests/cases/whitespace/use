@@ -2,6 +2,9 @@
 Blank line after use declarations
 ---CONTENTS---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo;
@@ -9,6 +12,9 @@ new Foo();
 
 ---FIXED---
 <?php
+
+declare(strict_types=1);
+
 namespace Vendor;
 
 use Foo;

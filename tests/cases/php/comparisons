@@ -1,0 +1,19 @@
+---DESCRIPTION---
+Strict comparisons must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo == $bar;
+$baz != $qux;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo === $bar;
+$baz !== $qux;
+
+---

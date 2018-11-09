@@ -1,0 +1,14 @@
+---DESCRIPTION---
+Single blank line before and after declare directives
+---CONTENTS---
+<?php declare(strict_types=1);
+namespace Vendor;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+---

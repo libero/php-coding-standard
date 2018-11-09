@@ -3,9 +3,13 @@ File must end with a blank line
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 $foo = 'bar';
 ---FIXED---
 <?php
+
+declare(strict_types=1);
 
 $foo = 'bar';
 

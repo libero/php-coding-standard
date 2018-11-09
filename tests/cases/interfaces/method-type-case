@@ -1,0 +1,33 @@
+---DESCRIPTION---
+Primitive types must be in lower case
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar(String $baz, ARRAY $qux) : vOiD;
+
+    public function quux(Bool $quuz, OBJECT $corge) : iTeRaBlE;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar(string $baz, array $qux) : void;
+
+    public function quux(bool $quuz, object $corge) : iterable;
+}
+
+---

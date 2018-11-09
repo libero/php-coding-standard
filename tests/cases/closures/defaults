@@ -3,11 +3,13 @@ Default values must go at the end
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor;
 
 $foo = function ($bar = [], $baz) : void {
 };
 
 ---MESSAGES---
-5:29 PEAR.Functions.ValidDefaultValue.NotAtEnd
+7:29 PEAR.Functions.ValidDefaultValue.NotAtEnd
 ---

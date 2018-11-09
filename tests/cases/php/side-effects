@@ -3,6 +3,8 @@ A file must either declare symbols or execute logic, not both
 ---CONTENTS---
 <?php
 
+declare(strict_types=1);
+
 foo();
 
 function foo() : void
