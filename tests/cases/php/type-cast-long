@@ -1,0 +1,21 @@
+---DESCRIPTION---
+Shorthand cast operators must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = (boolean) $foo;
+$bar = (integer) $bar;
+$baz = (double) $baz;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = (bool) $foo;
+$bar = (int) $bar;
+$baz = (float) $baz;
+
+---
