@@ -1,0 +1,19 @@
+---DESCRIPTION---
+Combined assignment operators must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$i = $i + 2;
+$foo = $foo . $bar;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$i += 2;
+$foo .= $bar;
+
+---
