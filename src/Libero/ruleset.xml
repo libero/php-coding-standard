@@ -11,6 +11,9 @@
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement">
+        <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
+    </rule>
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
     <rule ref="Generic.PHP.LowerCaseType"/>

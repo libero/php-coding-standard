@@ -1,0 +1,28 @@
+---DESCRIPTION---
+Statements must not be empty, except catch blocks
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+if ($foo) {
+    // Bar
+} elseif ($baz) {
+    // Qux
+} else {
+}
+
+try {
+} catch (Exception $e) {
+} catch (Throwable $e) {
+    // Corge
+} finally {
+}
+
+---MESSAGES---
+5:1 Generic.CodeAnalysis.EmptyStatement.DetectedIf
+7:3 Generic.CodeAnalysis.EmptyStatement.DetectedElseif
+9:3 Generic.CodeAnalysis.EmptyStatement.DetectedElse
+12:1 Generic.CodeAnalysis.EmptyStatement.DetectedTry
+16:3 Generic.CodeAnalysis.EmptyStatement.DetectedFinally
+---
