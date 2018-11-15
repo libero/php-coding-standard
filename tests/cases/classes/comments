@@ -1,0 +1,94 @@
+---DESCRIPTION---
+Comments must be meaningful and aligned
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+/**
+ *    Class Foo
+  *
+ * {@inheritdoc}
+
+
+ */
+class Foo extends Bar
+{
+    private $baz;
+
+    /**
+     * Foo constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+    * Baz getter.
+
+ *@return resource
+*/
+    public function getBaz()
+    {
+        return $this->baz;
+    }
+
+    /**
+     * Baz setter.
+    *
+        *   @param resource $baz
+        */
+    public function setBaz($baz) : void
+    {
+        $this->baz = $baz;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function qux() : void
+    {
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo extends Bar
+{
+    private $baz;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return resource
+     */
+    public function getBaz()
+    {
+        return $this->baz;
+    }
+
+    /**
+     * @param resource $baz
+     */
+    public function setBaz($baz) : void
+    {
+        $this->baz = $baz;
+    }
+
+    public function qux() : void
+    {
+    }
+}
+
+---

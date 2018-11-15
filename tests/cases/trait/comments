@@ -1,0 +1,87 @@
+---DESCRIPTION---
+Must use UTF-8
+---FILENAME---
+Comments must be meaningful and aligned
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+/**
+ *    Trait Foo
+  *
+ * {@inheritdoc}
+
+
+ */
+trait Foo
+{
+    use Bar;
+
+    private $baz;
+
+    /**
+    * Baz getter.
+
+ *@return resource
+*/
+    public function getBaz()
+    {
+        return $this->baz;
+    }
+
+    /**
+     * Baz setter.
+    *
+        *   @param resource $baz
+        */
+    public function setBaz($baz) : void
+    {
+        $this->baz = $baz;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function qux() : void
+    {
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    use Bar;
+
+    private $baz;
+
+    /**
+     * @return resource
+     */
+    public function getBaz()
+    {
+        return $this->baz;
+    }
+
+    /**
+     * @param resource $baz
+     */
+    public function setBaz($baz) : void
+    {
+        $this->baz = $baz;
+    }
+
+    public function qux() : void
+    {
+    }
+}
+
+---

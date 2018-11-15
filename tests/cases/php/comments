@@ -1,0 +1,48 @@
+---DESCRIPTION---
+Comments must be meaningful and use C-style single-line comments
+---CONTENTS---
+<?php
+
+/**
+ * Created by some IDE.
+ * User: chris
+ * Date: 15/11/2018
+ * Time: 12:11
+ */
+
+declare(strict_types=1);
+
+# Foo
+
+//
+
+#
+
+/*
+ *
+ */
+
+/* Bar */
+/** Baz */
+
+// $qux = 'quux';
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+// Foo
+
+
+
+// Bar
+
+// Baz
+
+
+// $qux = 'quux';
+
+---MESSAGES---
+14:1 Squiz.PHP.CommentedOutCode.Found
+---

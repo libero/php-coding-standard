@@ -14,6 +14,7 @@
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
     <rule ref="Generic.PHP.LowerCaseType"/>
+    <rule ref="PEAR.Commenting.InlineComment"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
         <properties>
@@ -23,6 +24,27 @@
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming"/>
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming"/>
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming"/>
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
+        <properties>
+            <property name="linesCountBeforeFirstContent" value="0"/>
+            <property name="linesCountAfterLastContent" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.EmptyComment"/>
+    <rule ref="SlevomatCodingStandard.Commenting.ForbiddenComments">
+        <properties>
+            <property name="forbiddenCommentPatterns" type="array">
+                <element value="~^Created by .+\z~i"/>
+                <element value="~^User: .+\z~i"/>
+                <element value="~^Date: .+\z~i"/>
+                <element value="~^Time: .+\z~i"/>
+                <element value="~^(?:Class|Interface|Trait) .+\z~i"/>
+                <element value="~^(?:(?!private|protected|static)\S+ )?(?:con|de)structor\.\z~i"/>
+                <element value="~^\S+ [gs]etter\.?\z~i"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
@@ -62,6 +84,9 @@
         </properties>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
+    <rule ref="Squiz.Commenting.BlockComment"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.PHP.CommentedOutCode"/>
     <rule ref="Squiz.PHP.InnerFunctions"/>
     <rule ref="Squiz.Strings.DoubleQuoteUsage">
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>

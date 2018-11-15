@@ -1,0 +1,37 @@
+---DESCRIPTION---
+Comment blocks must be spaced and aligned
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+echo 'foo';
+/*
+
+ *
+*Bar.
+   *
+
+ *     Baz.
+
+   *
+   */
+echo 'qux';
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+echo 'foo';
+/*
+ * Bar.
+ *
+ * Baz.
+ */
+echo 'qux';
+
+---MESSAGES---
+6:1 Squiz.Commenting.BlockComment.NoEmptyLineBefore
+14:1 Squiz.Commenting.BlockComment.NoEmptyLineAfter
+---
