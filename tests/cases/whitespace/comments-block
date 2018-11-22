@@ -6,17 +6,17 @@ Comment blocks must be spaced and aligned
 declare(strict_types=1);
 
 echo 'foo';
-/*
+/*Bar
 
- *
-*Bar.
-   *
 
- *     Baz.
+Baz.
 
-   *
-   */
-echo 'qux';
+
+ Qux.
+
+
+   Quux*/
+echo 'quuz';
 
 ---FIXED---
 <?php
@@ -25,13 +25,20 @@ declare(strict_types=1);
 
 echo 'foo';
 /*
- * Bar.
- *
- * Baz.
- */
-echo 'qux';
+    Bar
+
+
+    Baz.
+
+
+    Qux.
+
+
+   Quux*/
+echo 'quuz';
 
 ---MESSAGES---
 6:1 Squiz.Commenting.BlockComment.NoEmptyLineBefore
-14:1 Squiz.Commenting.BlockComment.NoEmptyLineAfter
+16:1 Squiz.Commenting.BlockComment.CloserSameLine
+16:1 Squiz.Commenting.BlockComment.NoEmptyLineAfter
 ---
