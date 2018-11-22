@@ -1,26 +1,24 @@
 ---DESCRIPTION---
-Comments must use C-style single-line comments
+Comments must not be empty
 ---CONTENTS---
 <?php
 
 declare(strict_types=1);
 
-# Foo
 //
 #
 /*
+
+*/
+/* */
+/**
  *
  */
-/* Bar */
-/** Baz */
+/** **/
 
 ---FIXED---
 <?php
 
 declare(strict_types=1);
-
-// Foo
-// Bar
-// Baz
 
 ---
