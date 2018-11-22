@@ -5,9 +5,19 @@ Comments must be meaningful
 
 /**
  * Created by some IDE.
- * User: chris
+ * User: Some User
  * Date: 15/11/2018
  * Time: 12:11
+ *
+ * @api
+ * @author Some User <some.user@example.com>
+ * @category MyCategory
+ * @copyright 1997-2005 The PHP Group
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @package MyPackage
+ * @since 1.0.1 First time this was introduced.
+ * @subpackage Documentation\API
+ * @version GIT: $Id$ In development. Very unstable.
  */
 
 declare(strict_types=1);
