@@ -9,9 +9,9 @@ function foo() : void
 {      
     foreach ([] as $bar) {       
         echo $bar;        
-    }        
-}         
-          
+    }         
+}          
+           
 ---FIXED---
 <?php
 
