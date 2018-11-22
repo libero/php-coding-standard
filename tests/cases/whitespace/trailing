@@ -4,14 +4,14 @@ Must not have trailing whitespace
 <?php 
   
 declare(strict_types=1);   
-
-function foo() : void
+    
+function foo() : void     
 {      
-    foreach ([] as $bar) {
-        echo $bar;
-    }         
-}          
-           
+    foreach ([] as $bar) {       
+        echo $bar;        
+    }        
+}         
+          
 ---FIXED---
 <?php
 
