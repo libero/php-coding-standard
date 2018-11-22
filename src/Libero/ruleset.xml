@@ -14,7 +14,6 @@
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
     <rule ref="Generic.PHP.LowerCaseType"/>
-    <rule ref="PEAR.Commenting.InlineComment"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
         <properties>
@@ -86,6 +85,10 @@
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.Commenting.BlockComment"/>
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.InlineComment">
+        <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+        <exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
+    </rule>
     <rule ref="Squiz.PHP.CommentedOutCode"/>
     <rule ref="Squiz.PHP.InnerFunctions"/>
     <rule ref="Squiz.Strings.DoubleQuoteUsage">

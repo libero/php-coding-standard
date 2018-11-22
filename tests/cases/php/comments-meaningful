@@ -1,0 +1,20 @@
+---DESCRIPTION---
+Comments must be meaningful
+---CONTENTS---
+<?php
+
+/**
+ * Created by some IDE.
+ * User: chris
+ * Date: 15/11/2018
+ * Time: 12:11
+ */
+
+declare(strict_types=1);
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+---

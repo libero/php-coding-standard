@@ -1,0 +1,26 @@
+---DESCRIPTION---
+Comments must use C-style single-line comments
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+# Foo
+//
+#
+/*
+ *
+ */
+/* Bar */
+/** Baz */
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+// Foo
+// Bar
+// Baz
+
+---
