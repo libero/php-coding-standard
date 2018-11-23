@@ -11,7 +11,10 @@ use const T_DOUBLE_COLON;
 
 final class ObjectStaticOperatorSpacingSniff extends BaseObjectOperatorSpacingSniff
 {
-    public function register()
+    /**
+     * @return array<int>
+     */
+    public function register() : array
     {
         return [T_DOUBLE_COLON];
     }

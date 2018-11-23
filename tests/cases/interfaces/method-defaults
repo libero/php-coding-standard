@@ -11,9 +11,9 @@ namespace Vendor;
 
 interface Foo
 {
-    public function bar(string $baz = '', string $qux);
+    public function bar(string $baz = '', string $qux) : void;
 }
 
 ---MESSAGES---
-9:51 PEAR.Functions.ValidDefaultValue.NotAtEnd
+9:50 PEAR.Functions.ValidDefaultValue.NotAtEnd
 ---

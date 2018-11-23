@@ -37,7 +37,7 @@ final class RulesetTests extends TestCase
     /** @var Runner */
     private static $codeSniffer;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass() : void
     {
         self::$codeSniffer = new Runner();
         self::$codeSniffer->config = new Config(['--standard=Libero']);

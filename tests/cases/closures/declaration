@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace Vendor;
 
 /**
+ * @param resource $bar
  * @param resource $baz
- * @param resource $qux
  */
 $foo = function   ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...$quuz   )use  ( &$foo)   :
 void
