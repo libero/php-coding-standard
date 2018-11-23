@@ -62,6 +62,10 @@
         </properties>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+        <!-- Generics-style collections not yet supported -->
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint"/>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>

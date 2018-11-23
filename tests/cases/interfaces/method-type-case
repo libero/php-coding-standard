@@ -11,14 +11,8 @@ namespace Vendor;
 
 interface Foo
 {
-    /**
-     * @param array<string> $qux
-     */
     public function bar(String $baz, ARRAY $qux) : vOiD;
 
-    /**
-     * @return iterable<string>
-     */
     public function quux(Bool $quuz, OBJECT $corge) : iTeRaBlE;
 }
 
@@ -31,14 +25,8 @@ namespace Vendor;
 
 interface Foo
 {
-    /**
-     * @param array<string> $qux
-     */
     public function bar(string $baz, array $qux) : void;
 
-    /**
-     * @return iterable<string>
-     */
     public function quux(bool $quuz, object $corge) : iterable;
 }
 

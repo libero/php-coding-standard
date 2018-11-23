@@ -5,16 +5,10 @@ Primitive types must be in lower case
 
 declare(strict_types=1);
 
-/**
- * @param array<string> $qux
- */
 function foo(String $bar, ARRAY $baz) : vOiD
 {
 }
 
-/**
- * @return iterable<string>
- */
 function qux(Bool $quux, OBJECT $quuz) : iTeRaBlE
 {
 }
@@ -24,16 +18,10 @@ function qux(Bool $quux, OBJECT $quuz) : iTeRaBlE
 
 declare(strict_types=1);
 
-/**
- * @param array<string> $qux
- */
 function foo(string $bar, array $baz) : void
 {
 }
 
-/**
- * @return iterable<string>
- */
 function qux(bool $quux, object $quuz) : iterable
 {
 }
