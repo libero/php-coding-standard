@@ -1,0 +1,28 @@
+---DESCRIPTION---
+Method argument types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public function bar($baz) : string
+    {
+    }
+
+    /**
+     * @param resource $quux
+     */
+    public function qux($quux) : string
+    {
+    }
+}
+
+---MESSAGES---
+9:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+---

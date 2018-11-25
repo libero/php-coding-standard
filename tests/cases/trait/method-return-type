@@ -1,0 +1,67 @@
+---DESCRIPTION---
+Method return types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public function bar() : string
+    {
+    }
+
+    /**
+     * @return resource
+     */
+    public function baz()
+    {
+    }
+
+    public function qux()
+    {
+    }
+
+    public function quux()
+    {
+        return 'quuz';
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public function bar() : string
+    {
+    }
+
+    /**
+     * @return resource
+     */
+    public function baz()
+    {
+    }
+
+    public function qux() : void
+    {
+    }
+
+    public function quux()
+    {
+        return 'quuz';
+    }
+}
+
+---MESSAGES---
+24:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+---

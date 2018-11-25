@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Method braces must be on separate lines.
+Method return types must be declared
 ---FILENAME---
 Foo.php
 ---CONTENTS---
@@ -13,14 +13,12 @@ interface Foo
 {
     public function bar() : string;
 
-    public function baz() : void;
-
     /**
      * @return resource
      */
-    public function qux();
+    public function baz();
 
-    public function quuz();
+    public function qux();
 }
 
 ---FIXED---
@@ -34,14 +32,12 @@ interface Foo
 {
     public function bar() : string;
 
-    public function baz() : void;
-
     /**
      * @return resource
      */
-    public function qux();
+    public function baz();
 
-    public function quuz() : void;
+    public function qux() : void;
 }
 
 ---
