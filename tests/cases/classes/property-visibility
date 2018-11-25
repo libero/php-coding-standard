@@ -11,10 +11,11 @@ namespace Vendor;
 
 class Foo
 {
+    /** @var string */
     var $bar;
 }
 
 ---MESSAGES---
-9:9 PSR2.Classes.PropertyDeclaration.ScopeMissing
-9:9 PSR2.Classes.PropertyDeclaration.VarUsed
+10:9 PSR2.Classes.PropertyDeclaration.ScopeMissing
+10:9 PSR2.Classes.PropertyDeclaration.VarUsed
 ---

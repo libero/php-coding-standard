@@ -23,6 +23,7 @@
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming"/>
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming"/>
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming"/>
+    <rule ref="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
@@ -69,7 +70,6 @@
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint"/>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.PHP.InnerFunctions"/>

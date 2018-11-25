@@ -1,0 +1,39 @@
+---DESCRIPTION---
+Property types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public $bar;
+
+    /**
+     * @var string
+     */
+    public $baz;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait Foo
+{
+    public $bar;
+
+    /** @var string */
+    public $baz;
+}
+
+---MESSAGES---
+9:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint
+---
