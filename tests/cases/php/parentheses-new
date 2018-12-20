@@ -1,0 +1,15 @@
+---DESCRIPTION---
+New instances must use parentheses
+---CONTENTS---
+<?php
+
+new Foo;
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+new Foo();
+
+---

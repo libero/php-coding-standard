@@ -1,0 +1,33 @@
+---DESCRIPTION---
+Parentheses must not be used unnecessarily
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = ($bar !== null) ? true : false;
+$baz = ($qux) ? 1 : 0;
+$quux = (true || false) ? 0 : 1;
+
+switch ($quuz) {
+    case (true):
+    case (false):
+        return $corge / (100 + $grault);
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = $bar !== null ? true : false;
+$baz = $qux ? 1 : 0;
+$quux = (true || false) ? 0 : 1;
+
+switch ($quuz) {
+    case true:
+    case false:
+        return $corge / (100 + $grault);
+}
+
+---
