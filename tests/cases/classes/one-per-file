@@ -19,5 +19,6 @@ class Bar
 
 ---MESSAGES---
 11:1 PSR1.Classes.ClassDeclaration.MultipleClasses
+---IGNORE-MESSAGES---
 11:1 Squiz.Classes.ClassFileName.NoMatch
 ---
