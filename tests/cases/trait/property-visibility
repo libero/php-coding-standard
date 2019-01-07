@@ -17,5 +17,6 @@ trait Foo
 
 ---MESSAGES---
 10:9 PSR2.Classes.PropertyDeclaration.ScopeMissing
+---IGNORE-MESSAGES---
 10:9 PSR2.Classes.PropertyDeclaration.VarUsed
 ---
