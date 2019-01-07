@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-No closing PHP tags
+No closing PHP tags at the end of files
 ---CONTENTS---
 <?php
 
@@ -9,10 +9,11 @@ $foo = 'bar';
 
 ?>
 
+---FIXED---
 <?php
 
-$baz = 'qux';
+declare(strict_types=1);
 
----MESSAGES---
-8:1 Generic.Files.InlineHTML.Found
+$foo = 'bar';
+
 ---
