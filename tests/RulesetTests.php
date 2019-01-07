@@ -20,6 +20,7 @@ use function Functional\flatten;
 use function Functional\select_keys;
 use function implode;
 use function ini_get;
+use function is_string;
 use function mb_convert_encoding;
 use function mb_detect_encoding;
 use function preg_match_all;
@@ -37,7 +38,7 @@ final class RulesetTests extends TestCase
     /** @var Runner */
     private static $codeSniffer;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass() : void
     {
         self::$codeSniffer = new Runner();
         self::$codeSniffer->config = new Config(['--standard=Libero']);
@@ -47,6 +48,8 @@ final class RulesetTests extends TestCase
     /**
      * @test
      * @dataProvider cases
+     *
+     * @param array<string> $messages
      */
     public function it_finds_and_fixes_violations(
         string $filename,
@@ -56,24 +59,31 @@ final class RulesetTests extends TestCase
         ?string $description,
         ?string $fixedEncoding
     ) : void {
-        $file = $this->createFile($filename, $contents);
-        $actual = flatten($this->getMessages($file));
+        $file = static::createFile($filename, $contents);
+        $actual = flatten(static::getMessages($file));
 
         sort($actual);
         sort($messages);
 
-        $this->assertSame($messages, $actual, $description ?? '');
-        if ($fixedEncoding) {
-            $this->assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
+        static::assertSame($messages, $actual, $description ?? '');
+        if (is_string($fixedEncoding)) {
+            static::assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
         }
-        $this->assertSame($fixed, $file->fixer->getContents());
+        static::assertSame($fixed, $file->fixer->getContents());
     }
 
+    /**
+     * @return iterable<string,array<mixed>>
+     */
     public function cases() : iterable
     {
         $files = Finder::create()->files()->in(__DIR__.'/cases');
 
         foreach ($files as $file) {
+            if ('one-per-file' !== $file->getFilename()) {
+                //continue;
+            }
+
             preg_match_all('~(?:---)?([A-Z-]+?)---\s+([\s\S]+?)\n---~', $file->getContents(), $matches);
 
             $parts = array_combine(array_map('strtolower', $matches[1]), $matches[2]);
@@ -142,8 +152,8 @@ final class RulesetTests extends TestCase
 
     private function createFile(string $filename, string $content) : File
     {
-        if (!ini_get('short_open_tag') && false === strpos($content, '<?php')) {
-            $this->markTestSkipped('short_open_tag option is disabled');
+        if ('' === ini_get('short_open_tag') && false === strpos($content, '<?php')) {
+            static::markTestSkipped('short_open_tag option is disabled');
         }
 
         $file = new DummyFile(
@@ -167,6 +177,9 @@ final class RulesetTests extends TestCase
         return $file;
     }
 
+    /**
+     * @return iterable<string>
+     */
     private function getMessages(File $file) : iterable
     {
         foreach ([$file->getErrors(), $file->getWarnings()] as $messages) {

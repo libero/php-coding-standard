@@ -1,0 +1,122 @@
+---DESCRIPTION---
+Method return types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public function bar() : string
+    {
+    }
+
+    /**
+     * @return resource
+     */
+    public function baz()
+    {
+    }
+
+    public function qux()
+    {
+    }
+
+    public function quux()
+    {
+        return 'quuz';
+    }
+
+    public function quuz() : array
+    {
+    }
+
+    public function corge() : iterable
+    {
+    }
+
+    /**
+     * @return string[]
+     */
+    public function grault() : array
+    {
+    }
+
+    /**
+     * @return string[]
+     */
+    public function garply() : iterable
+    {
+    }
+
+    public function waldo() : ArrayObject
+    {
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public function bar() : string
+    {
+    }
+
+    /**
+     * @return resource
+     */
+    public function baz()
+    {
+    }
+
+    public function qux() : void
+    {
+    }
+
+    public function quux()
+    {
+        return 'quuz';
+    }
+
+    public function quuz() : array
+    {
+    }
+
+    public function corge() : iterable
+    {
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function grault() : array
+    {
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function garply() : iterable
+    {
+    }
+
+    public function waldo() : ArrayObject
+    {
+    }
+}
+
+---MESSAGES---
+24:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+29:12 Libero.Types.IterableTypes.MissingIterableReturnType
+33:12 Libero.Types.IterableTypes.MissingIterableReturnType
+51:12 Libero.Types.IterableTypes.MissingIterableReturnType
+---

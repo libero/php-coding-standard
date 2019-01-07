@@ -5,6 +5,8 @@ parameters:
     paths:
         - src
         - tests
+    excludes_analyse:
+        - %rootDir%/../../../tests/Sniffs/fixtures/*
 
 includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon

@@ -11,9 +11,10 @@ namespace Vendor;
 
 trait Foo
 {
+    /** @var string */
     public $bar, $baz;
 }
 
 ---MESSAGES---
-9:12 PSR2.Classes.PropertyDeclaration.Multiple
+10:12 PSR2.Classes.PropertyDeclaration.Multiple
 ---

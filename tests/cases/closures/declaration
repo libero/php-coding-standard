@@ -7,11 +7,19 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+/**
+ * @param resource $bar
+ * @param resource $baz
+ */
 $foo = function   ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...$quuz   )use  ( &$foo)   :
 void
 {
 };
 
+/**
+ * @param resource $grault
+ * @param resource $garply
+ */
 $corge = function
 ( $grault  ,$garply,
       bool$waldo, ? string  $fred    =null   )   use( $foo,&$corge
@@ -27,9 +35,17 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+/**
+ * @param resource $bar
+ * @param resource $baz
+ */
 $foo = function ($bar, &$baz, bool $qux, ?string $quux = null, string ...$quuz) use (&$foo) : void {
 };
 
+/**
+ * @param resource $grault
+ * @param resource $garply
+ */
 $corge = function (
     $grault,
     $garply,

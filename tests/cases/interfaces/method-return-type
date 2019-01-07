@@ -1,0 +1,79 @@
+---DESCRIPTION---
+Method return types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar() : string;
+
+    /**
+     * @return resource
+     */
+    public function baz();
+
+    public function qux();
+
+    public function quux() : array;
+
+    public function quuz() : iterable;
+
+    /**
+     * @return string[]
+     */
+    public function corge() : array;
+
+    /**
+     * @return string[]
+     */
+    public function grault() : iterable;
+
+    public function garply() : ArrayObject;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar() : string;
+
+    /**
+     * @return resource
+     */
+    public function baz();
+
+    public function qux() : void;
+
+    public function quux() : array;
+
+    public function quuz() : iterable;
+
+    /**
+     * @return array<string>
+     */
+    public function corge() : array;
+
+    /**
+     * @return array<string>
+     */
+    public function grault() : iterable;
+
+    public function garply() : ArrayObject;
+}
+
+---MESSAGES---
+18:12 Libero.Types.IterableTypes.MissingIterableReturnType
+20:12 Libero.Types.IterableTypes.MissingIterableReturnType
+32:12 Libero.Types.IterableTypes.MissingIterableReturnType
+---

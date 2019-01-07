@@ -11,11 +11,11 @@ namespace Vendor;
 
 class Foo
 {
-    public function bar($baz = [], $qux) : void
+    public function bar(string $baz = '', string $qux) : void
     {
     }
 }
 
 ---MESSAGES---
-9:36 PEAR.Functions.ValidDefaultValue.NotAtEnd
+9:50 PEAR.Functions.ValidDefaultValue.NotAtEnd
 ---

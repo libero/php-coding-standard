@@ -2,7 +2,7 @@
 
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.3/phpunit.xsd" colors="true"
-    bootstrap="vendor/autoload.php">
+    bootstrap="tests/bootstrap.php">
 
     <php>
         <const name="PHP_CODESNIFFER_CBF" value="true"/>
@@ -11,6 +11,7 @@
     <testsuites>
         <testsuite name="Libero Coding Standard">
             <directory suffix=".php">tests</directory>
+            <exclude>tests/Sniffs/fixtures/</exclude>
         </testsuite>
     </testsuites>
 

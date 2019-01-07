@@ -19,4 +19,5 @@ trait Bar
 
 ---MESSAGES---
 11:1 PSR1.Classes.ClassDeclaration.MultipleClasses
+11:1 Squiz.Classes.ClassFileName.NoMatch
 ---

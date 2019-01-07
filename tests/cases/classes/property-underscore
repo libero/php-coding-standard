@@ -11,9 +11,10 @@ namespace Vendor;
 
 class Foo
 {
+    /** @var string */
     private $_bar;
 }
 
 ---MESSAGES---
-9:13 PSR2.Classes.PropertyDeclaration.Underscore
+10:13 PSR2.Classes.PropertyDeclaration.Underscore
 ---

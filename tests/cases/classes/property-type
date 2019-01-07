@@ -1,0 +1,60 @@
+---DESCRIPTION---
+Property types must be declared
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public $bar;
+
+    /**
+     * @var string
+     */
+    public $baz;
+
+    /** @var array */
+    public $qux;
+
+    /** @var iterable */
+    public $quux;
+
+    /** @var ArrayObject */
+    public $quuz;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public $bar;
+
+    /** @var string */
+    public $baz;
+
+    /** @var array */
+    public $qux;
+
+    /** @var iterable */
+    public $quux;
+
+    /** @var ArrayObject */
+    public $quuz;
+}
+
+---MESSAGES---
+9:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint
+15:12 Libero.Types.IterableTypes.MissingPropertyIterableType
+18:12 Libero.Types.IterableTypes.MissingPropertyIterableType
+21:12 Libero.Types.IterableTypes.MissingPropertyIterableType
+---

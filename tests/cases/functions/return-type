@@ -1,0 +1,110 @@
+---DESCRIPTION---
+Function return types must be declared
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+function foo() : string
+{
+}
+
+/**
+ * @return resource
+ */
+function bar()
+{
+}
+
+function baz()
+{
+}
+
+function qux()
+{
+    return 'quz';
+}
+
+function quuz() : array
+{
+}
+
+function corge() : iterable
+{
+}
+
+/**
+ * @return string[]
+ */
+function grault() : array
+{
+}
+
+/**
+ * @return string[]
+ */
+function garply() : iterable
+{
+}
+
+function waldo() : ArrayObject
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+function foo() : string
+{
+}
+
+/**
+ * @return resource
+ */
+function bar()
+{
+}
+
+function baz() : void
+{
+}
+
+function qux()
+{
+    return 'quz';
+}
+
+function quuz() : array
+{
+}
+
+function corge() : iterable
+{
+}
+
+/**
+ * @return array<string>
+ */
+function grault() : array
+{
+}
+
+/**
+ * @return array<string>
+ */
+function garply() : iterable
+{
+}
+
+function waldo() : ArrayObject
+{
+}
+
+---MESSAGES---
+20:1 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+25:1 Libero.Types.IterableTypes.MissingIterableReturnType
+29:1 Libero.Types.IterableTypes.MissingIterableReturnType
+47:1 Libero.Types.IterableTypes.MissingIterableReturnType
+---
