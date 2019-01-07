@@ -23,7 +23,6 @@
     },
     "require-dev": {
         "ext-mbstring": "*",
-        "ext-tokenizer": "*",
         "lstrojny/functional-php": "^1.8",
         "phpstan/phpstan": "^0.10",
         "phpstan/phpstan-phpunit": "^0.10",
