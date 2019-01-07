@@ -1,0 +1,13 @@
+---DESCRIPTION---
+No whitespace before the opening PHP tag
+---CONTENTS---
+ <?php
+
+declare(strict_types=1);
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+---

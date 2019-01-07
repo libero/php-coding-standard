@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Runner;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use function array_combine;
+use function array_diff;
 use function array_filter;
 use function array_map;
 use function explode;
@@ -53,11 +54,12 @@ final class RulesetTests extends TestCase
         string $contents,
         string $fixed,
         array $messages,
+        array $ignoreMessages,
         ?string $description,
         ?string $fixedEncoding
     ) : void {
         $file = $this->createFile($filename, $contents);
-        $actual = flatten($this->getMessages($file));
+        $actual = array_diff(flatten($this->getMessages($file)), $ignoreMessages);
 
         sort($actual);
         sort($messages);
@@ -82,6 +84,10 @@ final class RulesetTests extends TestCase
 
             if (isset($parts['messages'])) {
                 $parts['messages'] = array_filter(explode("\n", $parts['messages']));
+            }
+
+            if (isset($parts['ignore-messages'])) {
+                $parts['ignore-messages'] = array_filter(explode("\n", $parts['ignore-messages']));
             }
 
             $keys = ['fixed', 'fixed-encoding', 'fixed-line-endings', 'messages'];
@@ -134,6 +140,7 @@ final class RulesetTests extends TestCase
                 $parts['contents'],
                 $parts['fixed'],
                 $parts['messages'] ?? [],
+                $parts['ignore-messages'] ?? [],
                 $parts['description'] ?? null,
                 $parts['fixed-encoding'] ?? null,
             ];
