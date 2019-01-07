@@ -1,0 +1,11 @@
+---DESCRIPTION---
+No content before the opening PHP tag
+---CONTENTS---
+foo<?php
+
+declare(strict_types=1);
+
+---MESSAGES---
+1:1 Generic.Files.InlineHTML.Found
+1:4 Generic.PHP.CharacterBeforePHPOpeningTag.Found
+---

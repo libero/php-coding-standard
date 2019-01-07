@@ -11,8 +11,10 @@
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.Files.InlineHTML"/>
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
     <rule ref="Generic.PHP.LowerCaseType"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
