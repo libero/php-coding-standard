@@ -52,6 +52,16 @@ class Foo
      */
     private $woooo;
 
+    /**
+     * @var string[][][]
+     */
+    private $wooooo;
+
+    /**
+     * @var iterable<string[][][]>
+     */
+    private $woooooo;
+
     public function food(array $arg) : array
     {
     }
@@ -89,6 +99,24 @@ class Foo
      * @return bool|string[]
      */
     public function barc($arg)
+    {
+    }
+
+    /**
+     * @param string[][][] $arg
+     *
+     * @return string[][][]
+     */
+    public function bard($arg)
+    {
+    }
+
+    /**
+     * @param iterable<string[][][]> $arg
+     *
+     * @return iterable<string[][][]>
+     */
+    public function bare($arg)
     {
     }
 }

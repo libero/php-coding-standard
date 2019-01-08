@@ -52,6 +52,16 @@ class Foo
      */
     private $woooo;
 
+    /**
+     * @var array<array<array<string>>>
+     */
+    private $wooooo;
+
+    /**
+     * @var iterable<array<array<array<string>>>>
+     */
+    private $woooooo;
+
     public function food(array $arg) : array
     {
     }
@@ -89,6 +99,24 @@ class Foo
      * @return bool|array<string>
      */
     public function barc($arg)
+    {
+    }
+
+    /**
+     * @param array<array<array<string>>> $arg
+     *
+     * @return array<array<array<string>>>
+     */
+    public function bard($arg)
+    {
+    }
+
+    /**
+     * @param iterable<array<array<array<string>>>> $arg
+     *
+     * @return iterable<array<array<array<string>>>>
+     */
+    public function bare($arg)
     {
     }
 }
