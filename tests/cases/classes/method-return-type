@@ -103,7 +103,7 @@ class Foo
     }
 
     /**
-     * @return array<string>
+     * @return iterable<string>
      */
     public function garply() : iterable
     {

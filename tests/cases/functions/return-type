@@ -92,7 +92,7 @@ function grault() : array
 }
 
 /**
- * @return array<string>
+ * @return iterable<string>
  */
 function garply() : iterable
 {

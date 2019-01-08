@@ -3,6 +3,7 @@
 namespace Vendor;
 
 use ArrayObject;
+use Traversable;
 
 class Foo
 {
@@ -41,6 +42,11 @@ class Foo
      */
     private $woo;
 
+    /**
+     * @var Traversable<string>
+     */
+    private $wooo;
+
     public function food(array $arg) : array
     {
     }
@@ -51,6 +57,24 @@ class Foo
      * @return array<string>
      */
     public function bar(array $arg) : array
+    {
+    }
+
+    /**
+     * @param iterable<string> $arg
+     *
+     * @return iterable<string>
+     */
+    public function bara(iterable $arg) : iterable
+    {
+    }
+
+    /**
+     * @param Traversable<string> $arg
+     *
+     * @return Traversable<string>
+     */
+    public function barb(Traversable $arg) : Traversable
     {
     }
 }

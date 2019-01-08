@@ -30,7 +30,7 @@ use SlevomatCodingStandard\Helpers\ReturnTypeHint;
 use Traversable;
 use function array_map;
 use function array_reduce;
-use function implode;
+use function count;
 use function in_array;
 use function is_a;
 use function is_string;
@@ -102,10 +102,10 @@ final class IterableTypesSniff implements Sniff
             return;
         }
 
-        if ($this->isIterableType($typeAnnotation->type)) {
-            $correctType = $this->toRealType($typeAnnotation->type);
+        $correctType = $this->toRealType($typeAnnotation->type);
 
-            if ($correctType !== (string) $typeAnnotation->type) {
+        if ($this->isIterableType($correctType)) {
+            if ((string) $correctType !== (string) $typeAnnotation->type) {
                 $fix = $file->addFixableError(
                     sprintf(
                         'Fix %s.',
@@ -131,14 +131,14 @@ final class IterableTypesSniff implements Sniff
                 ); $i++) {
                     $file->fixer->replaceToken($i, '');
                 }
-                $file->fixer->replaceToken($typeAnnotationSlevomat->getEndPointer(), $correctType);
+                $file->fixer->replaceToken($typeAnnotationSlevomat->getEndPointer(), (string) $correctType);
 
                 $file->fixer->endChangeset();
 
                 return;
             }
 
-            if (!$typeAnnotation->type instanceof GenericTypeNode && $this->isIterable($correctType)) {
+            if (!$typeAnnotation->type instanceof GenericTypeNode) {
                 $file->addError(
                     sprintf(
                         'Fix %s.',
@@ -187,9 +187,9 @@ final class IterableTypesSniff implements Sniff
                 continue;
             }
 
-            $correctType = $this->toRealType($argumentAnnotations[$argument]->type);
+            $correctType = $this->toRealType($argumentAnnotations[$argument]->type, $type->getTypeHint());
 
-            if ($correctType !== (string) $argumentAnnotations[$argument]->type) {
+            if ((string) $correctType !== (string) $argumentAnnotations[$argument]->type) {
                 $fix = $file->addFixableError(
                     sprintf(
                         'Fix %s.',
@@ -259,45 +259,43 @@ final class IterableTypesSniff implements Sniff
             return;
         }
 
-        if ($this->isIterableType($returnAnnotation->type)) {
-            $correctType = $this->toRealType($returnAnnotation->type);
+        $correctType = $this->toRealType($returnAnnotation->type, $returnType->getTypeHint());
 
-            if ($correctType !== (string) $returnAnnotation->type) {
-                $fix = $file->addFixableError(
-                    sprintf(
-                        'Fix %s.',
-                        FunctionHelper::getFullyQualifiedName($file, $functionPointer)
-                    ),
-                    $functionPointer,
-                    self::CODE_METHOD_ITERABLE_RETURN_TYPE_HINT_GENERICS
-                );
+        if ((string) $correctType !== (string) $returnAnnotation->type) {
+            $fix = $file->addFixableError(
+                sprintf(
+                    'Fix %s.',
+                    FunctionHelper::getFullyQualifiedName($file, $functionPointer)
+                ),
+                $functionPointer,
+                self::CODE_METHOD_ITERABLE_RETURN_TYPE_HINT_GENERICS
+            );
 
-                if (!$fix) {
-                    return;
-                }
-
-                $file->fixer->beginChangeset();
-
-                $returnAnnotationSlevomat = AnnotationHelper::getAnnotationsByName(
-                    $file,
-                    $functionPointer,
-                    '@return'
-                )[0];
-
-                $startPointer = $returnAnnotationSlevomat->getStartPointer() + 2;
-                $endPointer = $returnAnnotationSlevomat->getEndPointer();
-
-                for ($i = $startPointer; $i < $endPointer; $i++) {
-                    $file->fixer->replaceToken($i, '');
-                }
-
-                $file->fixer->replaceToken($returnAnnotationSlevomat->getEndPointer(), $correctType);
-
-                $file->fixer->endChangeset();
+            if (!$fix) {
+                return;
             }
 
-            return;
+            $file->fixer->beginChangeset();
+
+            $returnAnnotationSlevomat = AnnotationHelper::getAnnotationsByName(
+                $file,
+                $functionPointer,
+                '@return'
+            )[0];
+
+            $startPointer = $returnAnnotationSlevomat->getStartPointer() + 2;
+            $endPointer = $returnAnnotationSlevomat->getEndPointer();
+
+            for ($i = $startPointer; $i < $endPointer; $i++) {
+                $file->fixer->replaceToken($i, '');
+            }
+
+            $file->fixer->replaceToken($returnAnnotationSlevomat->getEndPointer(), (string) $correctType);
+
+            $file->fixer->endChangeset();
         }
+
+        return;
     }
 
     private function getPhpDoc(File $file, int $pointer) : ?PhpDocNode
@@ -338,21 +336,41 @@ final class IterableTypesSniff implements Sniff
         return $this->isIterableType($phpDoc->getVarTagValues()[0]->type);
     }
 
-    private function toRealType(TypeNode $type) : string
+    private function toRealType(TypeNode $type, ?string $realType = null) : TypeNode
     {
         switch (true) {
             case $type instanceof ArrayTypeNode:
-                return $this->toRealType(new GenericTypeNode(new IdentifierTypeNode('array'), [$type->type]));
-            case $type instanceof GenericTypeNode:
-                return $type->type.'<'.implode(', ', array_map([$this, 'toRealType'], $type->genericTypes)).'>';
-            case $type instanceof IntersectionTypeNode:
-                return '('.implode(' & ', array_map([$this, 'toRealType'], $type->types)).')';
-            case $type instanceof NullableTypeNode:
-                return '?'.$this->toRealType($type->type);
-            case $type instanceof UnionTypeNode:
-                return '('.implode(' | ', array_map([$this, 'toRealType'], $type->types)).')';
-        }
+                $iterable = 'iterable' === $realType ? 'iterable' : 'array';
 
-        return (string) $type;
+                return new GenericTypeNode(new IdentifierTypeNode($iterable), [$type->type]);
+            case $type instanceof GenericTypeNode:
+                return new GenericTypeNode($type->type, array_map([$this, 'toRealType'], $type->genericTypes));
+            case $type instanceof IntersectionTypeNode:
+                return new IntersectionTypeNode(array_map([$this, 'toRealType'], $type->types));
+            case $type instanceof NullableTypeNode:
+                return new UnionTypeNode([$type->type, new IdentifierTypeNode('null')]);
+            case $type instanceof UnionTypeNode:
+                if (2 === count($type->types)) {
+                    if ($type->types[0] instanceof IdentifierTypeNode
+                        &&
+                        is_a($type->types[0]->name, Traversable::class, true)
+                        &&
+                        $type->types[1] instanceof ArrayTypeNode
+                    ) {
+                        return new GenericTypeNode($type->types[0], [$type->types[1]->type]);
+                    } elseif ($type->types[1] instanceof IdentifierTypeNode
+                        &&
+                        is_a($type->types[1]->name, Traversable::class, true)
+                        &&
+                        $type->types[0] instanceof ArrayTypeNode
+                    ) {
+                        return new GenericTypeNode($type->types[1], [$type->types[0]->type]);
+                    }
+                }
+
+                return new UnionTypeNode(array_map([$this, 'toRealType'], $type->types));
+            default:
+                return $type;
+        }
     }
 }

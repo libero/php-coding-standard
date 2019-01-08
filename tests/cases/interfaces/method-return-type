@@ -65,7 +65,7 @@ interface Foo
     public function corge() : array;
 
     /**
-     * @return array<string>
+     * @return iterable<string>
      */
     public function grault() : iterable;
 
