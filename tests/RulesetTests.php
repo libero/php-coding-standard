@@ -21,7 +21,6 @@ use function Functional\flatten;
 use function Functional\select_keys;
 use function implode;
 use function ini_get;
-use function is_string;
 use function mb_convert_encoding;
 use function mb_detect_encoding;
 use function preg_match_all;
@@ -69,7 +68,7 @@ final class RulesetTests extends TestCase
         sort($messages);
 
         $this->assertSame($messages, $actual, $description ?? '');
-        if (is_string($fixedEncoding)) {
+        if ($fixedEncoding) {
             $this->assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
         }
         $this->assertSame($fixed, $file->fixer->getContents());
