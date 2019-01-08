@@ -62,17 +62,17 @@ final class RulesetTests extends TestCase
         ?string $description,
         ?string $fixedEncoding
     ) : void {
-        $file = static::createFile($filename, $contents);
-        $actual = array_diff(flatten(static::getMessages($file)), $ignoreMessages);
+        $file = $this->createFile($filename, $contents);
+        $actual = array_diff(flatten($this->getMessages($file)), $ignoreMessages);
 
         sort($actual);
         sort($messages);
 
-        static::assertSame($messages, $actual, $description ?? '');
+        $this->assertSame($messages, $actual, $description ?? '');
         if (is_string($fixedEncoding)) {
-            static::assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
+            $this->assertSame($fixedEncoding, mb_detect_encoding($file->fixer->getContents(), 'UTF-8', true));
         }
-        static::assertSame($fixed, $file->fixer->getContents());
+        $this->assertSame($fixed, $file->fixer->getContents());
     }
 
     /**
@@ -83,10 +83,6 @@ final class RulesetTests extends TestCase
         $files = Finder::create()->files()->in(__DIR__.'/cases');
 
         foreach ($files as $file) {
-            if ('one-per-file' !== $file->getFilename()) {
-                //continue;
-            }
-
             preg_match_all('~(?:---)?([A-Z-]+?)---\s+([\s\S]+?)\n---~', $file->getContents(), $matches);
 
             $parts = array_combine(array_map('strtolower', $matches[1]), $matches[2]);
@@ -160,8 +156,8 @@ final class RulesetTests extends TestCase
 
     private function createFile(string $filename, string $content) : File
     {
-        if ('' === ini_get('short_open_tag') && false === strpos($content, '<?php')) {
-            static::markTestSkipped('short_open_tag option is disabled');
+        if (!ini_get('short_open_tag') && false === strpos($content, '<?php')) {
+            $this->markTestSkipped('short_open_tag option is disabled');
         }
 
         $file = new DummyFile(
