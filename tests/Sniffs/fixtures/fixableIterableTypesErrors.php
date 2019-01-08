@@ -47,6 +47,11 @@ class Foo
      */
     private $wooo;
 
+    /**
+     * @var bool|string[]
+     */
+    private $woooo;
+
     public function food(array $arg) : array
     {
     }
@@ -75,6 +80,15 @@ class Foo
      * @return Traversable|string[]
      */
     public function barb(Traversable $arg) : Traversable
+    {
+    }
+
+    /**
+     * @param bool|string[] $arg
+     *
+     * @return bool|string[]
+     */
+    public function barc($arg)
     {
     }
 }

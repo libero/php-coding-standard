@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Libero\CodingStandard\Libero\Sniffs\Types;
 
+use LogicException;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
@@ -25,12 +26,15 @@ use PHPStan\PhpDocParser\Parser\TypeParser;
 use SlevomatCodingStandard\Helpers\AnnotationHelper;
 use SlevomatCodingStandard\Helpers\DocCommentHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
+use SlevomatCodingStandard\Helpers\ParameterTypeHint;
 use SlevomatCodingStandard\Helpers\PropertyHelper;
 use SlevomatCodingStandard\Helpers\ReturnTypeHint;
 use Traversable;
 use function array_map;
 use function array_reduce;
 use function count;
+use function get_class;
+use function implode;
 use function in_array;
 use function is_a;
 use function is_string;
@@ -102,61 +106,59 @@ final class IterableTypesSniff implements Sniff
             return;
         }
 
-        $correctType = $this->toRealType($typeAnnotation->type);
+        $correctType = $this->formatType($this->toRealType($typeAnnotation->type));
 
-        if ($this->isIterableType($correctType)) {
-            if ((string) $correctType !== (string) $typeAnnotation->type) {
-                $fix = $file->addFixableError(
-                    sprintf(
-                        'Fix %s.',
-                        PropertyHelper::getFullyQualifiedName($file, $propertyPointer)
-                    ),
-                    $propertyPointer,
-                    self::CODE_PROPERTY_ITERABLE_TYPE_HINT_GENERICS
-                );
+        if ($correctType !== $this->formatType($typeAnnotation->type)) {
+            $fix = $file->addFixableError(
+                sprintf(
+                    'Fix %s.',
+                    PropertyHelper::getFullyQualifiedName($file, $propertyPointer)
+                ),
+                $propertyPointer,
+                self::CODE_PROPERTY_ITERABLE_TYPE_HINT_GENERICS
+            );
 
-                if (!$fix) {
-                    return;
-                }
-
-                $file->fixer->beginChangeset();
-
-                $typeAnnotationSlevomat = AnnotationHelper::getAnnotationsByName(
-                    $file,
-                    $propertyPointer,
-                    '@var'
-                )[0];
-
-                for ($i = $typeAnnotationSlevomat->getStartPointer() + 2; $i < $typeAnnotationSlevomat->getEndPointer(
-                ); $i++) {
-                    $file->fixer->replaceToken($i, '');
-                }
-                $file->fixer->replaceToken($typeAnnotationSlevomat->getEndPointer(), (string) $correctType);
-
-                $file->fixer->endChangeset();
-
+            if (!$fix) {
                 return;
             }
 
-            if (!$typeAnnotation->type instanceof GenericTypeNode) {
-                $file->addError(
-                    sprintf(
-                        'Fix %s.',
-                        PropertyHelper::getFullyQualifiedName($file, $propertyPointer)
-                    ),
-                    $propertyPointer,
-                    self::CODE_MISSING_PROPERTY_ITERABLE_TYPE_HINT
-                );
+            $file->fixer->beginChangeset();
 
-                return;
+            $typeAnnotationSlevomat = AnnotationHelper::getAnnotationsByName(
+                $file,
+                $propertyPointer,
+                '@var'
+            )[0];
+
+            for ($i = $typeAnnotationSlevomat->getStartPointer() + 2; $i < $typeAnnotationSlevomat->getEndPointer(
+            ); $i++) {
+                $file->fixer->replaceToken($i, '');
             }
+            $file->fixer->replaceToken($typeAnnotationSlevomat->getEndPointer(), $correctType);
+
+            $file->fixer->endChangeset();
+
+            return;
+        }
+
+        if ($typeAnnotation->type instanceof IdentifierTypeNode && $this->isIterable($typeAnnotation->type)) {
+            $file->addError(
+                sprintf(
+                    'Fix %s.',
+                    PropertyHelper::getFullyQualifiedName($file, $propertyPointer)
+                ),
+                $propertyPointer,
+                self::CODE_MISSING_PROPERTY_ITERABLE_TYPE_HINT
+            );
+
+            return;
         }
     }
 
     private function checkFunctionArgumentTypes(File $file, int $functionPointer) : void
     {
         $phpDoc = $this->getPhpDoc($file, $functionPointer);
-        $arguments = FunctionHelper::getParametersTypeHints($file, $functionPointer);
+        $arguments = array_map([$this, 'toType'], FunctionHelper::getParametersTypeHints($file, $functionPointer));
 
         $argumentAnnotations = array_reduce(
             $phpDoc instanceof PhpDocNode ? $phpDoc->getParamTagValues() : [],
@@ -169,7 +171,11 @@ final class IterableTypesSniff implements Sniff
         );
 
         foreach ($arguments as $argument => $type) {
-            if (null === $type || !$this->isIterable($type->getTypeHint())) {
+            if ($type instanceof TypeNode && !$this->isIterable($type)) {
+                continue;
+            }
+
+            if (!$type instanceof TypeNode && !isset($argumentAnnotations[$argument])) {
                 continue;
             }
 
@@ -187,9 +193,9 @@ final class IterableTypesSniff implements Sniff
                 continue;
             }
 
-            $correctType = $this->toRealType($argumentAnnotations[$argument]->type, $type->getTypeHint());
+            $correctType = $this->formatType($this->toRealType($argumentAnnotations[$argument]->type, $type));
 
-            if ((string) $correctType !== (string) $argumentAnnotations[$argument]->type) {
+            if ($correctType !== $this->formatType($argumentAnnotations[$argument]->type)) {
                 $fix = $file->addFixableError(
                     sprintf(
                         'Fix %s.',
@@ -239,14 +245,19 @@ final class IterableTypesSniff implements Sniff
     private function checkFunctionReturnType(File $file, int $functionPointer) : void
     {
         $phpDoc = $this->getPhpDoc($file, $functionPointer);
-        $returnType = FunctionHelper::findReturnTypeHint($file, $functionPointer);
+        $returnType = $this->toType(FunctionHelper::findReturnTypeHint($file, $functionPointer));
         $returnAnnotation = $phpDoc instanceof PhpDocNode ? $phpDoc->getReturnTagValues()[0] ?? null : null;
 
-        if (!$returnType instanceof ReturnTypeHint || !$this->isIterable($returnType->getTypeHint())) {
+        if ($returnType instanceof TypeNode && !$this->isIterable($returnType)) {
             return;
         }
 
-        if (!$returnAnnotation instanceof ReturnTagValueNode) {
+        if ($returnType instanceof TypeNode
+            &&
+            $this->isIterable($returnType)
+            &&
+            !$returnAnnotation instanceof ReturnTagValueNode
+        ) {
             $file->addError(
                 sprintf(
                     'Function %s does not have @var annotation.',
@@ -259,9 +270,13 @@ final class IterableTypesSniff implements Sniff
             return;
         }
 
-        $correctType = $this->toRealType($returnAnnotation->type, $returnType->getTypeHint());
+        if (!$returnAnnotation instanceof ReturnTagValueNode) {
+            return;
+        }
 
-        if ((string) $correctType !== (string) $returnAnnotation->type) {
+        $correctType = $this->formatType($this->toRealType($returnAnnotation->type, $returnType));
+
+        if ($correctType !== $this->formatType($returnAnnotation->type)) {
             $fix = $file->addFixableError(
                 sprintf(
                     'Fix %s.',
@@ -290,7 +305,7 @@ final class IterableTypesSniff implements Sniff
                 $file->fixer->replaceToken($i, '');
             }
 
-            $file->fixer->replaceToken($returnAnnotationSlevomat->getEndPointer(), (string) $correctType);
+            $file->fixer->replaceToken($returnAnnotationSlevomat->getEndPointer(), $correctType);
 
             $file->fixer->endChangeset();
         }
@@ -312,7 +327,29 @@ final class IterableTypesSniff implements Sniff
         return $this->parser->parse(new TokenIterator($tokens));
     }
 
-    private function isIterableType(TypeNode $type) : bool
+    /**
+     * @param ParameterTypeHint|ReturnTypeHint|null $typeHint
+     */
+    private function toType($typeHint) : ?TypeNode
+    {
+        switch (true) {
+            case $typeHint instanceof ParameterTypeHint:
+                $type = $typeHint->getTypeHint();
+                $isNullable = $typeHint->isNullable();
+                break;
+            case $typeHint instanceof ReturnTypeHint:
+                $type = $typeHint->getTypeHint();
+                $isNullable = $typeHint->isNullable();
+                break;
+            default:
+                return null;
+        }
+
+        return $this->getPhpDocFromString(sprintf('@var %s%s', $isNullable ? '?' : '', $type))
+            ->getVarTagValues()[0]->type;
+    }
+
+    private function isIterable(TypeNode $type) : bool
     {
         if ($type instanceof ArrayTypeNode || $type instanceof GenericTypeNode) {
             return true;
@@ -329,20 +366,19 @@ final class IterableTypesSniff implements Sniff
         return false;
     }
 
-    private function isIterable(string $type) : bool
-    {
-        $phpDoc = $this->getPhpDocFromString("@var {$type}");
-
-        return $this->isIterableType($phpDoc->getVarTagValues()[0]->type);
-    }
-
-    private function toRealType(TypeNode $type, ?string $realType = null) : TypeNode
+    private function toRealType(TypeNode $type, ?TypeNode $realType = null) : TypeNode
     {
         switch (true) {
             case $type instanceof ArrayTypeNode:
-                $iterable = 'iterable' === $realType ? 'iterable' : 'array';
+                if (!$realType instanceof TypeNode) {
+                    $realType = new IdentifierTypeNode('array');
+                }
 
-                return new GenericTypeNode(new IdentifierTypeNode($iterable), [$type->type]);
+                if (!$realType instanceof IdentifierTypeNode || !$this->isIterable($realType)) {
+                    throw new LogicException('Expected array or iterable');
+                }
+
+                return new GenericTypeNode($realType, [$type->type]);
             case $type instanceof GenericTypeNode:
                 return new GenericTypeNode($type->type, array_map([$this, 'toRealType'], $type->genericTypes));
             case $type instanceof IntersectionTypeNode:
@@ -371,6 +407,28 @@ final class IterableTypesSniff implements Sniff
                 return new UnionTypeNode(array_map([$this, 'toRealType'], $type->types));
             default:
                 return $type;
+        }
+    }
+
+    private function formatType(TypeNode $type) : string
+    {
+        switch (true) {
+            case $type instanceof ArrayTypeNode:
+                return $this->formatType($type->type).'[]';
+            case $type instanceof GenericTypeNode:
+                return sprintf(
+                    '%s<%s>',
+                    $this->formatType($type->type),
+                    implode(', ', array_map([$this, 'formatType'], $type->genericTypes))
+                );
+            case $type instanceof IdentifierTypeNode:
+                return $type->name;
+            case $type instanceof IntersectionTypeNode:
+                return implode('&', array_map([$this, 'formatType'], $type->types));
+            case $type instanceof UnionTypeNode:
+                return implode('|', array_map([$this, 'formatType'], $type->types));
+            default:
+                throw new LogicException('Unknown type '.get_class($type));
         }
     }
 }

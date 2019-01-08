@@ -59,12 +59,16 @@ class Foo
      */
     private $fred;
 
+    public function bar($arg)
+    {
+    }
+
     /**
      * @param mixed $arg
      *
      * @return mixed
      */
-    public function bar($arg)
+    public function barr($arg)
     {
     }
 
