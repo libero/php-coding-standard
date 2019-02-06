@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 interface Foo
 {
     public function bar($baz) : string;
@@ -17,8 +19,17 @@ interface Foo
      * @param resource $quux
      */
     public function qux($quux) : string;
+
+    public function quuz(array $corge) : string;
+
+    public function grault(iterable $garply) : string;
+
+    public function waldo(ArrayObject $fred) : string;
 }
 
 ---MESSAGES---
-9:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+11:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+18:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
+20:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
+22:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
 ---

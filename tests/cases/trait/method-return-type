@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 trait Foo
 {
     public function bar() : string
@@ -65,6 +67,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 trait Foo
 {
     public function bar() : string
@@ -115,8 +119,8 @@ trait Foo
 }
 
 ---MESSAGES---
-24:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-29:12 Libero.Types.IterableTypes.MissingIterableReturnType
-33:12 Libero.Types.IterableTypes.MissingIterableReturnType
-51:12 Libero.Types.IterableTypes.MissingIterableReturnType
+26:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+31:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+35:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+53:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
 ---

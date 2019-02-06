@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 interface Foo
 {
     public function bar() : string;
@@ -44,6 +46,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 interface Foo
 {
     public function bar() : string;
@@ -73,7 +77,7 @@ interface Foo
 }
 
 ---MESSAGES---
-18:12 Libero.Types.IterableTypes.MissingIterableReturnType
-20:12 Libero.Types.IterableTypes.MissingIterableReturnType
-32:12 Libero.Types.IterableTypes.MissingIterableReturnType
+20:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+22:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+34:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
 ---

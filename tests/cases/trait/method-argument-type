@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Vendor;
 
+use ArrayObject;
+
 trait Foo
 {
     public function bar($baz) : string
@@ -26,13 +28,18 @@ trait Foo
     {
     }
 
-    public function grault(array $garply) : string
+    public function grault(iterable $garply) : string
+    {
+    }
+
+    public function waldo(ArrayObject $fred) : string
     {
     }
 }
 
 ---MESSAGES---
-9:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-20:12 Libero.Types.IterableTypes.MissingIterableArgumentType
-24:12 Libero.Types.IterableTypes.MissingIterableArgumentType
+11:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+22:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
+26:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
+30:12 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification
 ---

@@ -104,7 +104,7 @@ function waldo() : ArrayObject
 
 ---MESSAGES---
 20:1 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-25:1 Libero.Types.IterableTypes.MissingIterableReturnType
-29:1 Libero.Types.IterableTypes.MissingIterableReturnType
-47:1 Libero.Types.IterableTypes.MissingIterableReturnType
+25:1 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+29:1 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
+47:1 SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification
 ---
