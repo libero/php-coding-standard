@@ -8,6 +8,8 @@
     <rule ref="PSR2">
         <!-- Prefer SlevomatCodingStandard.Namespaces.UseSpacing -->
         <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse"/>
+        <!-- Prefer SlevomatCodingStandard.Namespaces.UnusedUses -->
+        <exclude name="PSR2.Namespaces.UseDeclaration.UseBeforeNamespace"/>
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
@@ -27,11 +29,7 @@
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming"/>
     <rule ref="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
-    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
-        <properties>
-            <property name="psr12Compatible" value="true"/>
-        </properties>
-    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
         <properties>
             <property name="searchAnnotations" value="true"/>
