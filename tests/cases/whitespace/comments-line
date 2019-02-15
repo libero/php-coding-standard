@@ -1,0 +1,25 @@
+---DESCRIPTION---
+Comment lines must be aligned
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+//Foo
+
+//    Bar
+
+echo 'baz'; //    qux
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+// Foo
+
+// Bar
+
+echo 'baz'; // qux
+
+---

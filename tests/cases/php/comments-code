@@ -1,0 +1,19 @@
+---DESCRIPTION---
+Code must not be commented out
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+// $foo = 'bar';
+$foo = 'baz';
+
+/*
+    Something.
+    $foo = 'qux';
+*/
+
+---MESSAGES---
+5:1 Squiz.PHP.CommentedOutCode.Found
+8:1 Squiz.PHP.CommentedOutCode.Found
+---
