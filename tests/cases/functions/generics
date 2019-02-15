@@ -1,0 +1,63 @@
+---DESCRIPTION---
+Generic types must be used
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @param string[] $bar
+ * @return string[]
+ */
+function foo($bar)
+{
+}
+
+/**
+ * @param iterable|string[] $qux
+ * @return iterable|string[]
+ */
+function baz($qux)
+{
+}
+
+/**
+ * @param ArrayObject<string> $quuz
+ * @return ArrayObject<string>
+ */
+function quux($quuz)
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @param array<string> $bar
+ * @return array<string>
+ */
+function foo($bar)
+{
+}
+
+/**
+ * @param iterable<string> $qux
+ * @return iterable<string>
+ */
+function baz($qux)
+{
+}
+
+/**
+ * @param ArrayObject<string> $quuz
+ * @return ArrayObject<string>
+ */
+function quux($quuz)
+{
+}
+
+---

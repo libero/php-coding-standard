@@ -1,0 +1,61 @@
+---DESCRIPTION---
+Generic types must be used
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    /**
+     * @param string[] $baz
+     * @return string[]
+     */
+    public function bar($baz);
+
+    /**
+     * @param iterable|string[] $quux
+     * @return iterable|string[]
+     */
+    public function qux($quux);
+
+    /**
+     * @param ArrayObject<string> $corge
+     * @return ArrayObject<string>
+     */
+    public function quuz($corge);
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    /**
+     * @param array<string> $baz
+     * @return array<string>
+     */
+    public function bar($baz);
+
+    /**
+     * @param iterable<string> $quux
+     * @return iterable<string>
+     */
+    public function qux($quux);
+
+    /**
+     * @param ArrayObject<string> $corge
+     * @return ArrayObject<string>
+     */
+    public function quuz($corge);
+}
+
+---
