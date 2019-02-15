@@ -1,0 +1,24 @@
+---DESCRIPTION---
+Comments must not be empty
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+//
+#
+/*
+
+*/
+/* */
+/**
+ *
+ */
+/** **/
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+---

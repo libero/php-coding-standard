@@ -1,0 +1,63 @@
+---DESCRIPTION---
+Comments must be meaningful and aligned
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+/**
+ *    Interface Foo
+  *
+ * {@inheritdoc}
+
+
+ */
+interface Foo extends Bar
+{
+    /**
+    * Baz getter.
+
+ *@return resource
+*/
+    public function getBaz();
+
+    /**
+     * Baz setter.
+    *
+        *   @param resource $baz
+        */
+    public function setBaz($baz) : void;
+
+    /**
+     * @inheritdoc
+     */
+    public function qux() : void;
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo extends Bar
+{
+    /**
+     * @return resource
+     */
+    public function getBaz();
+
+    /**
+     * @param resource $baz
+     */
+    public function setBaz($baz) : void;
+
+    public function qux() : void;
+}
+
+---

@@ -1,0 +1,48 @@
+---DESCRIPTION---
+Functions must not have unnecessary whitespace
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+function foo() : void
+{
+
+    $bar = 'baz';
+
+}
+
+
+function qux() : void
+{
+
+
+}
+function quux() : void
+{
+
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+function foo() : void
+{
+    $bar = 'baz';
+}
+
+function qux() : void
+{
+}
+
+function quux() : void
+{
+}
+
+---

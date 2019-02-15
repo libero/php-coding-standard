@@ -1,0 +1,27 @@
+---DESCRIPTION---
+Closures must not have unnecessary whitespace
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+$foo = function () : void {
+
+    $baz = 'qux';
+
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+$foo = function () : void {
+    $baz = 'qux';
+};
+
+---

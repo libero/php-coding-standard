@@ -1,0 +1,39 @@
+---DESCRIPTION---
+Methods must not have unnecessary whitespace
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+
+    public function bar() : void;
+
+
+    public function quux() : void;
+    public function quuz() : void;
+
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    public function bar() : void;
+
+    public function quux() : void;
+
+    public function quuz() : void;
+}
+
+---
