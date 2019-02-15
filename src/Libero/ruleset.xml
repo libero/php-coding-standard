@@ -65,6 +65,8 @@
         </properties>
     </rule>
     <rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
@@ -85,6 +87,11 @@
     <rule ref="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator"/>
     <rule ref="SlevomatCodingStandard.PHP.ShortList"/>
     <rule ref="SlevomatCodingStandard.PHP.TypeCast"/>
+    <rule ref="SlevomatCodingStandard.PHP.UselessParentheses">
+        <properties>
+            <property name="ignoreComplexTernaryConditions" value="true"/>
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
             <property name="newlinesCountAfterDeclare" value="2"/>
@@ -113,6 +120,14 @@
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
     </rule>
     <rule ref="Squiz.WhiteSpace.CastSpacing"/>
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" value="1"/>
+            <property name="spacingBeforeFirst" value="0"/>
+            <property name="spacingAfterLast" value="0"/>
+        </properties>
+    </rule>
     <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
         <properties>
             <property name="ignoreNewlines" value="true"/>

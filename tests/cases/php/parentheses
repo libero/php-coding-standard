@@ -1,0 +1,43 @@
+---DESCRIPTION---
+Language constructs must be used without parentheses
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+require('foo.php');
+
+echo('bar');
+
+foreach ([] as $value) {
+    break (1);
+}
+
+$baz = function () {
+    yield('baz');
+    return('qux');
+};
+
+die();
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+require 'foo.php';
+
+echo 'bar';
+
+foreach ([] as $value) {
+    break 1;
+}
+
+$baz = function () {
+    yield 'baz';
+    return 'qux';
+};
+
+die;
+
+---
