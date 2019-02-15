@@ -18,7 +18,25 @@ namespace Vendor;
  */
 class Foo extends Bar
 {
+    /**
+    * Baz.
+    *
+     * @deprecated
+ * @var resource
+     * @internal
+        */
     private $baz;
+
+    /**
+   *
+    *
+ * @var resource
+   *
+    *
+   *
+    *
+        */
+    private $qux;
 
     /**
      * Foo constructor.
@@ -81,7 +99,18 @@ namespace Vendor;
 
 class Foo extends Bar
 {
+    /**
+     * Baz.
+     *
+     * @internal
+     * @deprecated
+     *
+     * @var resource
+     */
     private $baz;
+
+    /** @var resource */
+    private $qux;
 
     public function __construct()
     {

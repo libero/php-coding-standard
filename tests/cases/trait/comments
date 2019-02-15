@@ -20,7 +20,25 @@ trait Foo
 {
     use Bar;
 
+    /**
+    * Baz.
+    *
+     * @deprecated
+ * @var resource
+     * @internal
+        */
     private $baz;
+
+    /**
+   *
+    *
+ * @var resource
+   *
+    *
+   *
+    *
+        */
+    private $qux;
 
     /**
      * Foo constructor.
@@ -85,7 +103,18 @@ trait Foo
 {
     use Bar;
 
+    /**
+     * Baz.
+     *
+     * @internal
+     * @deprecated
+     *
+     * @var resource
+     */
     private $baz;
+
+    /** @var resource */
+    private $qux;
 
     public function __construct()
     {
