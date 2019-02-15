@@ -8,6 +8,7 @@ declare(strict_types=1);
 //Foo
 
 //    Bar
+
 echo 'baz'; //    qux
 
 ---FIXED---
@@ -16,7 +17,9 @@ echo 'baz'; //    qux
 declare(strict_types=1);
 
 // Foo
+
 // Bar
+
 echo 'baz'; // qux
 
 ---
