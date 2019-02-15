@@ -1,0 +1,27 @@
+---DESCRIPTION---
+Inline doc comments must be valid
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+/** @var $foo string */
+$foo = 'bar';
+
+/** @var string */
+$baz = 'qux';
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+/** @var string $foo */
+$foo = 'bar';
+
+/** @var string */
+$baz = 'qux';
+
+---MESSAGES---
+8:1 SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat
+---
