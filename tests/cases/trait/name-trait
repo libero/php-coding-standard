@@ -1,0 +1,18 @@
+---DESCRIPTION---
+Forbid Trait suffix
+---FILENAME---
+FooTrait.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+trait FooTrait
+{
+}
+
+---MESSAGES---
+7:1 SlevomatCodingStandard.Classes.SuperfluousTraitNaming.SuperfluousSuffix
+---
