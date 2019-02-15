@@ -11,7 +11,7 @@ namespace Vendor;
 
 class Foo
 {
-    public function bar  ( $baz  ,&$qux,  bool$quux, ? string  $quuz    =null   ,  string...$corge   ):
+    public function bar  ( $baz  ,&$qux,  bool$quux, ? string  $quuz    =null   ,  string...  $corge   ):
     void
     {
     }

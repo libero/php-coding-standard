@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-function foo  ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...$quuz   ):
+function foo  ( $bar  ,&$baz,  bool$qux, ? string  $quux    =null   ,  string...  $quuz   ):
 void
 {
 }
