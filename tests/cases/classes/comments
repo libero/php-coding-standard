@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Comments must be meaningful and aligned
+Comments must be meaningful, aligned and annotations grouped
 ---FILENAME---
 Foo.php
 ---CONTENTS---
@@ -18,7 +18,25 @@ namespace Vendor;
  */
 class Foo extends Bar
 {
+    /**
+    * Baz.
+    *
+     * @deprecated
+ * @var resource
+     * @internal
+        */
     private $baz;
+
+    /**
+   *
+    *
+ * @var resource
+   *
+    *
+   *
+    *
+        */
+    private $qux;
 
     /**
      * Foo constructor.
@@ -34,23 +52,40 @@ class Foo extends Bar
 */
     public function getBaz()
     {
-        return $this->baz;
     }
 
     /**
      * Baz setter.
     *
-        *   @param resource $baz
+        * Description
+     * More Description
+     * @throws FooException
+      *
+     * @deprecated
+     *
+     *
+     * @param resource $baz
+     * @uses other
+     * @throws BarException
+     * @return string
+     *
+     *
+     *
+     *
+     * @internal
+     * @link https://example.com
+     * @param string $qux
+     * @see other
+     *
         */
-    public function setBaz($baz) : void
+    public function setBaz($baz, $qux) : void
     {
-        $this->baz = $baz;
     }
 
     /**
      * @inheritdoc
      */
-    public function qux() : void
+    public function quux() : void
     {
     }
 }
@@ -64,7 +99,18 @@ namespace Vendor;
 
 class Foo extends Bar
 {
+    /**
+     * Baz.
+     *
+     * @internal
+     * @deprecated
+     *
+     * @var resource
+     */
     private $baz;
+
+    /** @var resource */
+    private $qux;
 
     public function __construct()
     {
@@ -75,18 +121,32 @@ class Foo extends Bar
      */
     public function getBaz()
     {
-        return $this->baz;
     }
 
     /**
+     * Description
+     * More Description
+     *
+     * @internal
+     * @deprecated
+     *
      * @param resource $baz
+     * @param string $qux
+     *
+     * @return string
+     *
+     * @throws FooException
+     * @throws BarException
+     *
+     * @uses other
+     * @link https://example.com
+     * @see other
      */
-    public function setBaz($baz) : void
+    public function setBaz($baz, $qux) : void
     {
-        $this->baz = $baz;
     }
 
-    public function qux() : void
+    public function quux() : void
     {
     }
 }

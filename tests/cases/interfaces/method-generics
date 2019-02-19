@@ -13,18 +13,21 @@ interface Foo
 {
     /**
      * @param string[] $baz
+     *
      * @return string[]
      */
     public function bar($baz);
 
     /**
      * @param iterable|string[] $quux
+     *
      * @return iterable|string[]
      */
     public function qux($quux);
 
     /**
      * @param ArrayObject<string> $corge
+     *
      * @return ArrayObject<string>
      */
     public function quuz($corge);
@@ -41,18 +44,21 @@ interface Foo
 {
     /**
      * @param array<string> $baz
+     *
      * @return array<string>
      */
     public function bar($baz);
 
     /**
      * @param iterable<string> $quux
+     *
      * @return iterable<string>
      */
     public function qux($quux);
 
     /**
      * @param ArrayObject<string> $corge
+     *
      * @return ArrayObject<string>
      */
     public function quuz($corge);

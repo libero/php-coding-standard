@@ -1,7 +1,7 @@
 ---DESCRIPTION---
-Must use UTF-8
+Comments must be meaningful, aligned and annotations grouped
 ---FILENAME---
-Comments must be meaningful and aligned
+Foo.php
 ---CONTENTS---
 <?php
 
@@ -20,7 +20,32 @@ trait Foo
 {
     use Bar;
 
+    /**
+    * Baz.
+    *
+     * @deprecated
+ * @var resource
+     * @internal
+        */
     private $baz;
+
+    /**
+   *
+    *
+ * @var resource
+   *
+    *
+   *
+    *
+        */
+    private $qux;
+
+    /**
+     * Foo constructor.
+     */
+    public function __construct()
+    {
+    }
 
     /**
     * Baz getter.
@@ -29,23 +54,40 @@ trait Foo
 */
     public function getBaz()
     {
-        return $this->baz;
     }
 
     /**
      * Baz setter.
     *
-        *   @param resource $baz
+        * Description
+     * More Description
+     * @throws FooException
+      *
+     * @deprecated
+     *
+     *
+     * @param resource $baz
+     * @uses other
+     * @throws BarException
+     * @return string
+     *
+     *
+     *
+     *
+     * @internal
+     * @link https://example.com
+     * @param string $qux
+     * @see other
+     *
         */
-    public function setBaz($baz) : void
+    public function setBaz($baz, $qux) : void
     {
-        $this->baz = $baz;
     }
 
     /**
      * @inheritdoc
      */
-    public function qux() : void
+    public function quux() : void
     {
     }
 }
@@ -61,25 +103,54 @@ trait Foo
 {
     use Bar;
 
+    /**
+     * Baz.
+     *
+     * @internal
+     * @deprecated
+     *
+     * @var resource
+     */
     private $baz;
+
+    /** @var resource */
+    private $qux;
+
+    public function __construct()
+    {
+    }
 
     /**
      * @return resource
      */
     public function getBaz()
     {
-        return $this->baz;
     }
 
     /**
+     * Description
+     * More Description
+     *
+     * @internal
+     * @deprecated
+     *
      * @param resource $baz
+     * @param string $qux
+     *
+     * @return string
+     *
+     * @throws FooException
+     * @throws BarException
+     *
+     * @uses other
+     * @link https://example.com
+     * @see other
      */
-    public function setBaz($baz) : void
+    public function setBaz($baz, $qux) : void
     {
-        $this->baz = $baz;
     }
 
-    public function qux() : void
+    public function quux() : void
     {
     }
 }

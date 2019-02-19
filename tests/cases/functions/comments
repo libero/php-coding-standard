@@ -1,0 +1,66 @@
+---DESCRIPTION---
+Comments must be meaningful, aligned and annotations grouped
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+/**
+     * Function foo.
+    *
+        * Description
+     * More Description
+     * @throws FooException
+      *
+* @deprecated
+*
+*
+* @param resource $bar
+* @uses other
+* @throws BarException
+* @return string
+*
+*
+*
+*
+* @internal
+* @link https://example.com
+* @param string $baz
+* @see other
+*
+    */
+function foo($bar, $baz)
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Description
+ * More Description
+ *
+ * @internal
+ * @deprecated
+ *
+ * @param resource $bar
+ * @param string $baz
+ *
+ * @return string
+ *
+ * @throws FooException
+ * @throws BarException
+ *
+ * @uses other
+ * @link https://example.com
+ * @see other
+ */
+function foo($bar, $baz)
+{
+}
+
+---
