@@ -82,6 +82,7 @@
             </property>
         </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration"/>
     <rule ref="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment"/>
     <rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses"/>
@@ -128,9 +129,12 @@
         </properties>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
-    <rule ref="Squiz.Commenting.BlockComment"/>
+    <rule ref="Squiz.Commenting.BlockComment">
+        <exclude name="Squiz.Commenting.BlockComment.WrongStart"/>
+    </rule>
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.Commenting.InlineComment">
+        <exclude name="Squiz.Commenting.InlineComment.DocBlock"/>
         <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
         <exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
         <exclude name="Squiz.Commenting.InlineComment.SpacingAfter"/>
