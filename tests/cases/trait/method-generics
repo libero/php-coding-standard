@@ -22,6 +22,7 @@ trait Foo
 
     /**
      * @param string[] $quux
+     *
      * @return string[]
      */
     public function qux($quux)
@@ -30,12 +31,14 @@ trait Foo
 
     /**
      * @param iterable|string[] $corge
+     *
      * @return iterable|string[]
      */
     abstract public function quuz($corge);
 
     /**
      * @param ArrayObject<string> $garply
+     *
      * @return ArrayObject<string>
      */
     public function grault($garply)
@@ -63,6 +66,7 @@ trait Foo
 
     /**
      * @param array<string> $quux
+     *
      * @return array<string>
      */
     public function qux($quux)
@@ -71,12 +75,14 @@ trait Foo
 
     /**
      * @param iterable<string> $corge
+     *
      * @return iterable<string>
      */
     abstract public function quuz($corge);
 
     /**
      * @param ArrayObject<string> $garply
+     *
      * @return ArrayObject<string>
      */
     public function grault($garply)
