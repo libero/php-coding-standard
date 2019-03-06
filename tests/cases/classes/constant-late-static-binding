@@ -1,0 +1,39 @@
+---DESCRIPTION---
+Late-static binding must not be used for constants
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public const BAR = 'baz';
+
+    public function __construct()
+    {
+        echo static::BAR;
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    public const BAR = 'baz';
+
+    public function __construct()
+    {
+        echo self::BAR;
+    }
+}
+
+---
