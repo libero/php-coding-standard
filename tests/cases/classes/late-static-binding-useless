@@ -1,5 +1,5 @@
 ---DESCRIPTION---
-Late-static binding must not be used for constants
+Late-static binding must not be used in final classes
 ---FILENAME---
 Foo.php
 ---CONTENTS---
@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-class Foo
+final class Foo
 {
-    public const BAR = 'baz';
-
     public function __construct()
     {
-        echo static::BAR;
+        static::$bar;
+        static::baz();
+        static::class;
     }
 }
 
@@ -26,13 +26,13 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-class Foo
+final class Foo
 {
-    public const BAR = 'baz';
-
     public function __construct()
     {
-        echo self::BAR;
+        self::$bar;
+        self::baz();
+        self::class;
     }
 }
 
