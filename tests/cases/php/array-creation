@@ -1,0 +1,12 @@
+---DESCRIPTION---
+Arrays must be created before being used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo['bar'] = $baz;
+
+---MESSAGES---
+5:1 SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation.ImplicitArrayCreationUsed
+---
