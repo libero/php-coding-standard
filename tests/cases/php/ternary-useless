@@ -6,11 +6,11 @@ Ternary expressions must not be used unnecessarily
 declare(strict_types=1);
 
 $foo = function () : bool {
-	return true ? true : false;
+    return true ? true : false;
 };
 
 $bar = function () : bool {
-	return true === false ? false : true;
+    return true === false ? false : true;
 };
 
 ---FIXED---
