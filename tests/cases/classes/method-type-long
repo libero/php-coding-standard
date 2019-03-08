@@ -1,0 +1,97 @@
+---DESCRIPTION---
+Shorthand types must be used
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    /** @var integer */
+    public $foo;
+
+    /** @var boolean */
+    public $bar;
+
+    /** @var array<integer, boolean> */
+    public $baz;
+
+    /**
+     * @param integer $quux
+     *
+     * @return integer
+     */
+    public function qux($quux)
+    {
+    }
+
+    /**
+     * @param boolean $corge
+     *
+     * @return boolean
+     */
+    public function quuz($corge)
+    {
+    }
+
+    /**
+     * @param array<integer, boolean> $garply
+     *
+     * @return array<integer, boolean>
+     */
+    public function grault($garply)
+    {
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+class Foo
+{
+    /** @var int */
+    public $foo;
+
+    /** @var bool */
+    public $bar;
+
+    /** @var array<int, bool> */
+    public $baz;
+
+    /**
+     * @param int $quux
+     *
+     * @return int
+     */
+    public function qux($quux)
+    {
+    }
+
+    /**
+     * @param bool $corge
+     *
+     * @return bool
+     */
+    public function quuz($corge)
+    {
+    }
+
+    /**
+     * @param array<int, bool> $garply
+     *
+     * @return array<int, bool>
+     */
+    public function grault($garply)
+    {
+    }
+}
+
+---
