@@ -24,6 +24,7 @@
     <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
     <rule ref="Generic.PHP.LowerCaseType"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
+    <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
         <properties>
             <property name="fixable" value="true"/>
