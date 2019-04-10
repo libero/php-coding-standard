@@ -5,7 +5,7 @@ Ternary expressions should be used
 
 declare(strict_types=1);
 
-$foo = function ($bar) : string {
+$foo = static function ($bar) : string {
     if ($bar) {
         return $bar;
     } else {
@@ -13,7 +13,7 @@ $foo = function ($bar) : string {
     }
 };
 
-$qux = function ($quux) : string {
+$qux = static function ($quux) : string {
     if ($quux) {
         return 'quuz';
     } else {
@@ -26,11 +26,11 @@ $qux = function ($quux) : string {
 
 declare(strict_types=1);
 
-$foo = function ($bar) : string {
+$foo = static function ($bar) : string {
     return $bar ?: 'baz';
 };
 
-$qux = function ($quux) : string {
+$qux = static function ($quux) : string {
     return $quux ? 'quuz' : 'corge';
 };
 

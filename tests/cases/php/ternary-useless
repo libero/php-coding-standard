@@ -5,11 +5,11 @@ Ternary expressions must not be used unnecessarily
 
 declare(strict_types=1);
 
-$foo = function ($bar) : bool {
+$foo = static function ($bar) : bool {
     return $bar ? $bar : false;
 };
 
-$baz = function ($qux) : bool {
+$baz = static function ($qux) : bool {
     return $qux === false ? false : true;
 };
 
@@ -18,11 +18,11 @@ $baz = function ($qux) : bool {
 
 declare(strict_types=1);
 
-$foo = function ($bar) : bool {
+$foo = static function ($bar) : bool {
     return $bar ?: false;
 };
 
-$baz = function ($qux) : bool {
+$baz = static function ($qux) : bool {
     return $qux !== false;
 };
 
