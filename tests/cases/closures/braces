@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-$foo = function () : void { $baz = 'qux'; };
+$foo = static function () : void { $baz = 'qux'; };
 
 ---FIXED---
 <?php
@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 namespace Vendor;
 
-$foo = function () : void {
+$foo = static function () : void {
     $baz = 'qux';
 };
 

@@ -1,0 +1,39 @@
+---DESCRIPTION---
+Late-static binding must not be used in final classes
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+final class Foo
+{
+    public function __construct()
+    {
+        static::$bar;
+        static::baz();
+        static::class;
+    }
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+final class Foo
+{
+    public function __construct()
+    {
+        self::$bar;
+        self::baz();
+        self::class;
+    }
+}
+
+---
