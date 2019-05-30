@@ -1,0 +1,27 @@
+---DESCRIPTION---
+Trailing comma is required in multi-line arrays
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+['foo', 'bar'];
+
+[
+    'baz',
+    'qux'
+];
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+['foo', 'bar'];
+
+[
+    'baz',
+    'qux',
+];
+
+---
