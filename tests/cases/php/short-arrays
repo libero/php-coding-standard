@@ -11,7 +11,7 @@ $baz = array(
     'qux',
 );
 
-$quux = function (array $quuz = array()) {
+$quux = static function (array $quuz = array()) {
 };
 
 ---FIXED---
@@ -25,7 +25,7 @@ $baz = [
     'qux',
 ];
 
-$quux = function (array $quuz = []) {
+$quux = static function (array $quuz = []) {
 };
 
 ---
