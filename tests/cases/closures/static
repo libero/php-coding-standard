@@ -1,0 +1,31 @@
+---DESCRIPTION---
+Closures must be declared as static when not referencing $this
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+$foo = function () {
+    return $this;
+};
+
+$bar = function () {
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+$foo = function () {
+    return $this;
+};
+
+$bar = static function () {
+};
+
+---

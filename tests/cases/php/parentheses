@@ -13,7 +13,7 @@ foreach ([] as $value) {
     break (1);
 }
 
-$baz = function () {
+$baz = static function () {
     yield('baz');
     return('qux');
 };
@@ -33,7 +33,7 @@ foreach ([] as $value) {
     break 1;
 }
 
-$baz = function () {
+$baz = static function () {
     yield 'baz';
     return 'qux';
 };
