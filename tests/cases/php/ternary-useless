@@ -1,0 +1,29 @@
+---DESCRIPTION---
+Ternary expressions must not be used unnecessarily
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = static function ($bar) : bool {
+    return $bar ? $bar : false;
+};
+
+$baz = static function ($qux) : bool {
+    return $qux === false ? false : true;
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = static function ($bar) : bool {
+    return $bar ?: false;
+};
+
+$baz = static function ($qux) : bool {
+    return $qux !== false;
+};
+
+---

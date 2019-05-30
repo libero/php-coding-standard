@@ -1,0 +1,21 @@
+---DESCRIPTION---
+Final methods must not be used in final classes
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+final class Foo
+{
+    final public function bar() : void
+    {
+    }
+}
+
+---MESSAGES---
+9:5 Generic.CodeAnalysis.UnnecessaryFinalModifier.Found
+---

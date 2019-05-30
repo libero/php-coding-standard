@@ -1,0 +1,67 @@
+---DESCRIPTION---
+Shorthand types must be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @param integer $bar
+ *
+ * @return integer
+ */
+function foo($bar)
+{
+}
+
+/**
+ * @param boolean $qux
+ *
+ * @return boolean
+ */
+function baz($qux)
+{
+}
+
+/**
+ * @param array<integer, boolean> $quuz
+ *
+ * @return array<integer, boolean>
+ */
+function quux($quuz)
+{
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @param int $bar
+ *
+ * @return int
+ */
+function foo($bar)
+{
+}
+
+/**
+ * @param bool $qux
+ *
+ * @return bool
+ */
+function baz($qux)
+{
+}
+
+/**
+ * @param array<int, bool> $quuz
+ *
+ * @return array<int, bool>
+ */
+function quux($quuz)
+{
+}
+
+---

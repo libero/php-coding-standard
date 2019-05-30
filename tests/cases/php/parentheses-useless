@@ -6,7 +6,7 @@ Parentheses must not be used unnecessarily
 declare(strict_types=1);
 
 $foo = ('bar');
-$baz = ($qux !== null) ? true : false;
+$baz = ($qux !== null) ? true : null;
 $quux = ($quuz) ? 1 : 0;
 $corge = (true || false) ? 0 : 1;
 
@@ -22,7 +22,7 @@ switch ($grault) {
 declare(strict_types=1);
 
 $foo = 'bar';
-$baz = $qux !== null ? true : false;
+$baz = $qux !== null ? true : null;
 $quux = $quuz ? 1 : 0;
 $corge = (true || false) ? 0 : 1;
 
