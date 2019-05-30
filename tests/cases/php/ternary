@@ -1,0 +1,37 @@
+---DESCRIPTION---
+Ternary expressions should be used
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+$foo = static function ($bar) : string {
+    if ($bar) {
+        return $bar;
+    } else {
+        return 'baz';
+    }
+};
+
+$qux = static function ($quux) : string {
+    if ($quux) {
+        return 'quuz';
+    } else {
+        return 'corge';
+    }
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+$foo = static function ($bar) : string {
+    return $bar ?: 'baz';
+};
+
+$qux = static function ($quux) : string {
+    return $quux ? 'quuz' : 'corge';
+};
+
+---
