@@ -121,6 +121,7 @@
             <property name="ignoreComplexTernaryConditions" value="true"/>
         </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.PHP.UselessSemicolon"/>
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
             <property name="newlinesCountAfterDeclare" value="2"/>

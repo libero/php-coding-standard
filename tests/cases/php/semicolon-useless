@@ -1,0 +1,23 @@
+---DESCRIPTION---
+Semicolons must not be used unnecessarily
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+;
+
+foreach ($foo as $bar) {
+    echo $qux;;
+};
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+foreach ($foo as $bar) {
+    echo $qux;
+}
+
+---
