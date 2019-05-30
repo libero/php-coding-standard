@@ -1,0 +1,67 @@
+---DESCRIPTION---
+Shorthand types must be used
+---FILENAME---
+Foo.php
+---CONTENTS---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    /**
+     * @param integer $baz
+     *
+     * @return integer
+     */
+    public function bar($baz);
+
+    /**
+     * @param boolean $quux
+     *
+     * @return boolean
+     */
+    public function qux($quux);
+
+    /**
+     * @param array<integer, boolean> $corge
+     *
+     * @return array<integer, boolean>
+     */
+    public function quuz($corge);
+}
+
+---FIXED---
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor;
+
+interface Foo
+{
+    /**
+     * @param int $baz
+     *
+     * @return int
+     */
+    public function bar($baz);
+
+    /**
+     * @param bool $quux
+     *
+     * @return bool
+     */
+    public function qux($quux);
+
+    /**
+     * @param array<int, bool> $corge
+     *
+     * @return array<int, bool>
+     */
+    public function quuz($corge);
+}
+
+---
